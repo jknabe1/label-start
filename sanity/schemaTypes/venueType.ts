@@ -9,5 +9,13 @@ export const venueType = defineType({
       name: 'name',
       type: 'string',
     }),
+    defineField({
+      name: 'City',
+      type: 'string',
+    }),
+    defineField({
+      name: 'Country',
+      type: 'string',
+    }),
   ],
 })

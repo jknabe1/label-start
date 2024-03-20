@@ -53,7 +53,7 @@ const eventTime = new Date(date).toLocaleTimeString();
     <main className="w-full min-h-screen py-24 md:py-24 lg:py-48">
       <div className="container px-4 md:px-6">
         <div className="mb-4">
-          <Link href="/">← Back to events</Link>
+          <Link href="/events">← Tillbaka</Link>
         </div>
           
         <div className="grid items-top gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
@@ -118,7 +118,7 @@ const eventTime = new Date(date).toLocaleTimeString();
                 </div>
                 <div className="grid gap-1">
                   <dt>{venue.name}</dt>
-                  <dt>
+                  <dt className="hidden">
                     {venue.city}, {venue.country}
                   </dt>
                 </div>

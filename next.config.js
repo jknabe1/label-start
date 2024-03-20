@@ -2,7 +2,7 @@ module.exports = {
     images: {
       remotePatterns: [
         {
-          hostname: 'cdn.smehost.net',
+          hostname: 'cdn.sanity.io',
         },
       ],
     },

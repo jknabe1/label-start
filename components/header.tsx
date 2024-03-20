@@ -57,7 +57,7 @@ const Menu: React.FC = () => {
 
   return (
     <div className="menu-container relative z-50" ref={container}> 
-      <div className="menu-bar border-y-4 border-black bg-white">
+      <div className="menu-bar border-4 border-black bg-white">
         <div className="menu-logo">
           <Link href="/">K&K RECORDS</Link>
         </div>

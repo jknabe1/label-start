@@ -1,11 +1,10 @@
 import Link from "next/link";
+import '@/app/globals.css';
 import { SanityDocument } from "next-sanity";
-
 import { client } from "@/sanity/client";
 
 const EVENTS_QUERY = `*[_type == "event" && defined(slug.current)]{_id, name, slug, date}|order(date desc)`;
 
-// Display Sanity content on the page
 export default async function IndexPage() {
   const events = await client.fetch<SanityDocument[]>(EVENTS_QUERY);
 
