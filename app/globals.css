@@ -75,6 +75,10 @@
   }
 }
 
+a:hover{
+  text-decoration: underline;
+}
+
 .menu-bar,
 .menu-overlay-bar {
   position: fixed;
