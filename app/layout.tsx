@@ -4,9 +4,9 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import CookieNotice from "@/components/cookieNotice";
-import Cursor from "@/components/cursor";
 import Loading from "@/components/preLoader";
 import { Suspense } from "react";
+import Cursor from "@/components/cursor";
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -28,13 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" suppressHydrationWarning >
+    <html lang="sv"  >
       <body className={ibm.className}>
       <Suspense fallback={<Loading/>}>
-        <Cursor />
         <CookieNotice />
         <Header/>
         {children}
+        <Cursor />
         <Footer/>
         </Suspense>
         </body>

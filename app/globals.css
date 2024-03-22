@@ -75,6 +75,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .menu-bar,
 .menu-overlay-bar {
   position: fixed;
@@ -107,7 +111,7 @@
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: #c5fb45;
+  background: #fff;
   z-index: 50;
   display: flex;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
@@ -183,15 +187,13 @@
   }
 }
 
-.custom-cursor {
-  position: absolute;
-  z-index: 9999;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 50%;
+.cursor {
+  position: fixed;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
+  z-index: 9999;
   mix-blend-mode: difference;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
 }
