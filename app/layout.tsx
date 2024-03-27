@@ -30,13 +30,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>      <ThemeProvider
+        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>    
+        <div className="border-x-4 border-black dark:border-white">    
+        <ThemeProvider
             attribute="class" 
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-      <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading/>}>
         <CookieNotice />
         <Header/>
         {children}
@@ -44,6 +46,7 @@ export default function RootLayout({
         <Footer/>
         </Suspense>
         </ThemeProvider>
+        </div>
         </body>
     </html>
   );

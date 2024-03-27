@@ -65,7 +65,7 @@ const Menu: React.FC = () => {
 
   return (
     <div className="menu-container relative z-50" ref={container}> 
-  <div className="menu-bar border-y-4 border-black bg-white dark:border-white dark:bg-black">
+  <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black">
     <div className="menu-logo">
       <a href="/" aria-label="Go to homepage"  title="Homepage">
       <img className="mix-blend-difference"          
