@@ -60,7 +60,7 @@ export default function CarouselPlugin() {
                     objectFit: 'contain',
                   }} 
                   priority 
-                  className="absolute" /> 
+                  className="absolute border-x-4 border-black" /> 
                 </CardContent>
               </Card>
             </div>

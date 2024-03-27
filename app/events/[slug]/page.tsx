@@ -60,7 +60,7 @@ const eventTime = new Date(date).toLocaleTimeString();
         {(eventImageUrl || artistImageUrl) && (
             <Image
                 alt={headline?.name || "Event"}
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                className="mx-auto aspect-video overflow-hidden object-cover object-center sm:w-full"
                 height={"310"}
                 src={eventImageUrl || artistImageUrl || ""}
                 width="550"
@@ -69,7 +69,7 @@ const eventTime = new Date(date).toLocaleTimeString();
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               {eventType && (
-                <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800 capitalize">
+                <div className="inline-block border-black border-4 px-3 py-1 text-sm dark:bg-gray-800 capitalize">
                   {eventType.replace("-", " ")}
                 </div>
               )}
@@ -132,7 +132,7 @@ const eventTime = new Date(date).toLocaleTimeString();
             {tickets && (
               <div className="flex gap-4">
                 <a
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 w-1/2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                  className="inline-flex h-10 items-center justify-center border-4 border-black text-black w-1/2 text-sm font-medium shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black dark:focus-visible:ring-gray-300"
                   href={tickets}
                 >
                   Buy Tickets

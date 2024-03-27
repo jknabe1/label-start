@@ -19,7 +19,7 @@ const CookieNotice: React.FC = () => {
 
   const acceptCookies = () => {
     const date = new Date();
-    date.setTime(date.getTime() + (90*24*60*60*1000)); // 90 days
+    date.setTime(date.getTime() + (90*24*60*60*1000)); 
     const expires = "; expires=" + date.toUTCString();
     document.cookie = "cookiesAccepted=true" + expires + "; path=/";
     setIsVisible(false);
@@ -27,7 +27,7 @@ const CookieNotice: React.FC = () => {
   
   const declineCookies = () => {
     const date = new Date();
-    date.setTime(date.getTime() + (90*24*60*60*1000)); // 90 days
+    date.setTime(date.getTime() + (90*24*60*60*1000)); 
     const expires = "; expires=" + date.toUTCString();
     document.cookie = "cookiesDeclined=true" + expires + "; path=/";
     setIsVisible(false);
@@ -48,7 +48,7 @@ const CookieNotice: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 right-0   z-50">
-      <div className="bg-white border-4 border-black   p-6 shadow-md">
+      <div className="bg-white border-l-4 border-y-4 border-black p-6 shadow-md dark:bg-black dark:text-white dark:border-white">
         <h2 className="text-lg font-bold mb-4">Din data...</h2>
         <p className="mb-4"> Vi använder kakor för att optimera våra sidor. <br/> Självklart frågar vi om samtycke innan...  Är det lugnt? <br/>Du kan läsa mer här: <a className="underline" href='/data'>Om din data</a></p>
         <div>

@@ -23,22 +23,20 @@ const Page = () => {
   }, [])
 
   return (
-    <ul className="grid grid-cols-3 gap-6 auto-rows-min lg:gap-8 pt-48">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {artists.map((artist: { slug: { current: string }, _id: string, name: string, image: any }, index: number) => (
-        <li
-          className={`event-card bg-white dark:bg-gray-950 p-4 rounded-lg shadow-md ${index % 5 === 0 ? 'col-span-2 row-span-2' : ''}`}
-          key={artist._id}
-        >
-          <a
-            className="hover:underline"
-            href={`/artists/${artist.slug.current}`}
-          >
-            <img src={urlFor(artist.image).url()} alt={artist.name} />
-            <h2 className="text-xl font-semibold">{artist.name}</h2>
+        <div key={artist._id} className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+          <a href={`/artists/${artist.slug.current}`} className="w-full block h-full">
+            <img alt={artist.name} src={urlFor(artist.image).url()} className="max-h-40 w-full object-cover"/>
+            <div className="bg-white dark:bg-gray-800 w-full p-4">
+              <p className="text-indigo-500 text-md font-medium">
+                {artist.name}
+              </p>
+            </div>
           </a>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   )
 }
 
