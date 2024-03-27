@@ -6,7 +6,6 @@ import Link from "next/link";
 import "@/app/globals.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import { ModeToggle } from "./ui/theme-button";
 
 const menuLinks = [
@@ -70,7 +69,12 @@ const Menu: React.FC = () => {
       <a href="/" aria-label="Go to homepage"  title="Homepage">
       <img className="mix-blend-difference"          
       alt="K&K Records Logo" 
-      src="https://www.rcarecords.com/wp-content/themes/rca-v2/static/svg/rca-logo.svg?fb53291584b0de3dbf11c01a58da20de"></img>
+      src="https://www.rcarecords.com/wp-content/themes/rca-v2/static/svg/rca-logo.svg?fb53291584b0de3dbf11c01a58da20de"
+      style={{ 
+        color: 'white', 
+        mixBlendMode: 'difference' 
+      }} > 
+      </img>
       </a>
     </div>
     <ModeToggle></ModeToggle>
@@ -87,7 +91,12 @@ const Menu: React.FC = () => {
     <div className="menu-logo">
       <img className="mix-blend-difference" 
       alt="K&K Records Logo"
-      src="https://www.rcarecords.com/wp-content/themes/rca-v2/static/svg/rca-logo.svg?fb53291584b0de3dbf11c01a58da20de"></img>
+      src="https://www.rcarecords.com/wp-content/themes/rca-v2/static/svg/rca-logo.svg?fb53291584b0de3dbf11c01a58da20de"
+      style={{ 
+        color: 'white', 
+        mixBlendMode: 'difference' 
+      }} 
+      ></img>
     </div>
     <div className="menu-close cursor-pointer">
       <p onClick={toggleMenu} className="text-4xl">X</p>

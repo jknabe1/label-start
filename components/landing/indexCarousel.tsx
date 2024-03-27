@@ -39,34 +39,45 @@ export default function CarouselPlugin() {
 
   return (
     <Carousel
-      plugins={[plugin.current]}
-      className="w-full relative z-10" 
-    >
-      <CarouselContent>
-      {artists.map((artist, index) => (
-          <CarouselItem key={artist._id || index} className="h-screen w-screen">
-            <div className="h-full w-full relative ">
-              <Card className="h-full w-full absolute inset-0">
-                <CardContent className="flex aspect-square items-center justify-center h-full w-full relative">
-                  <Image 
-                  src={urlFor(artist.image).url()} 
-                  alt={artist.name} 
-                  sizes="100vw"
-                  width={'1'}
-                  height={'1'}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    objectFit: 'contain',
-                  }} 
-                  priority 
-                  className="absolute border-x-4 border-black" /> 
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
+  plugins={[plugin.current]}
+  className="w-full relative z-10" 
+>
+  <CarouselContent>
+  {artists.map((artist, index) => (
+      <CarouselItem key={artist._id || index} className="h-screen w-screen">
+        <div className="h-full w-full relative ">
+          <Card className="h-full w-full absolute inset-0">
+            <CardContent className="flex aspect-square items-center justify-center h-full w-full relative">
+              <Image 
+              src={urlFor(artist.image).url()} 
+              alt={artist.name} 
+              sizes="100vw"
+              width={'1'}
+              height={'1'}
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
+              }} 
+              priority 
+              className="absolute border-x-4 border-black" /> 
+
+              <h1 className="text-9xl uppercase" style={{ 
+                position: 'absolute', 
+                top: '50%', 
+                left: '50%', 
+                transform: 'translate(-50%, -50%)', 
+                color: 'white', 
+                mixBlendMode: 'difference' 
+              }}>
+                {artist.name}
+              </h1>
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+</Carousel>
   )
 }
