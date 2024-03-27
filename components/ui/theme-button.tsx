@@ -8,7 +8,7 @@ export function ModeToggle() {
 
   return (
     <Button onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
-      {resolvedTheme === "dark" ? <Sun /> : <Moon />}
-    </Button>
+      <h1> change theme </h1>
+</Button>
   );
 }

@@ -82,7 +82,7 @@ const Menu: React.FC = () => {
     </div>
   </div>
 
-<div className="menu-overlay fixed top-0 left-0 w-screen h-screen p-8 bg-white dark:bg-black border-4 border-black dark:border-white flex flex-col">
+<div className="menu-overlay w-screen h-screen bg-white dark:bg-black border-4 border-black dark:border-white flex flex-col">
   <div className="menu-overlay-bar flex justify-between items-center border-b-4 border-black dark:border-white mb-8">
     <div className="menu-logo">
       <img className="mix-blend-difference" 
@@ -94,7 +94,7 @@ const Menu: React.FC = () => {
     </div>
   </div>
   <div className="menu-copy flex flex-col space-y-8">
-  <input type="text" placeholder="Search..." className="w-full p-2 mb-4 border-2" />
+  <input type="text" placeholder="Sök..." className="w-full p-2 mb-4 border-4 border-black dark:border-white bg-transparent" />
 
   <div className="grid grid-cols-1 gap-4 mb-4">
     {menuLinks.map((link, index) => (
@@ -111,7 +111,7 @@ const Menu: React.FC = () => {
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div className="menu-info flex flex-col space-y-4">
       <h3 className="text-lg font-bold">Newsletter</h3>
-      <input type="text" placeholder="Enter your email..." className="w-full p-2 border-2" />
+      <input type="text" placeholder="E-post" className="w-full p-2 border-4 border-black dark:border-white bg-transparent" />
       <button className="w-full p-2 mt-2 bg-blue-500 text-white">Subscribe</button>
     </div>
 
