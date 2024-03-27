@@ -45,7 +45,7 @@ export default function CarouselPlugin() {
       <CarouselContent>
       {artists.map((artist, index) => (
           <CarouselItem key={artist._id || index} className="h-screen w-screen">
-            <div className="h-full w-full relative">
+            <div className="h-full w-full relative ">
               <Card className="h-full w-full absolute inset-0">
                 <CardContent className="flex aspect-square items-center justify-center h-full w-full relative">
                   <Image 
@@ -60,7 +60,7 @@ export default function CarouselPlugin() {
                     objectFit: 'contain',
                   }} 
                   priority 
-                  className="absolute" /> 
+                  className="absolute border-x-4 border-black" /> 
                 </CardContent>
               </Card>
             </div>

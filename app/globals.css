@@ -75,6 +75,7 @@
   }
 }
 
+
 a:hover{
   text-decoration: underline;
 }
@@ -85,7 +86,7 @@ a:hover{
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 2em;
+  padding: 1.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +112,7 @@ a:hover{
   width: 100vw;
   height: 100vh;
   padding: 2em;
-  background: #c5fb45;
+  background: #fff;
   z-index: 50;
   display: flex;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
@@ -122,55 +123,6 @@ a:hover{
   display: flex;
   align-items: flex-end;
   cursor: pointer;
-}
-
-.menu-copy {
-  flex: 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 2em;
-}
-
-.menu-preview {
-  flex: 4;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.menu-close-icon p {
-  font-size: 100px;
-  -webkit-text-stroke: 3px #c5fb45;
-  line-height: 70%;
-}
-
-.menu-link-item {
-  width: max-content;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-
-.menu-link-item-holder {
-  position: relative;
-}
-
-.menu-link-item-holder a {
-  color: #000;
-  font-size: 80px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 85%;
-}
-
-.menu-info {
-  display: flex;
-}
-
-.menu-info-col {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 @media (max-width: 900px) {
@@ -187,15 +139,13 @@ a:hover{
   }
 }
 
-.custom-cursor {
-  position: absolute;
-  z-index: 9999;
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 50%;
+.cursor {
+  position: fixed;
   pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
+  z-index: 9999;
   mix-blend-mode: difference;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
 }

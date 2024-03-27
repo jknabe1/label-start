@@ -4,9 +4,10 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import CookieNotice from "@/components/cookieNotice";
-import Cursor from "@/components/cursor";
 import Loading from "@/components/preLoader";
 import { Suspense } from "react";
+import Cursor from "@/components/cursor";
+import { ThemeProvider } from "@/components/theme-providers";
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -29,14 +30,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-      <body className={ibm.className}>
+        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>      <ThemeProvider
+            attribute="class" 
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
       <Suspense fallback={<Loading/>}>
-        <Cursor />
         <CookieNotice />
         <Header/>
         {children}
+        <Cursor />
         <Footer/>
         </Suspense>
+        </ThemeProvider>
         </body>
     </html>
   );
