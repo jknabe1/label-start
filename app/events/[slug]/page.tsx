@@ -49,6 +49,7 @@ const eventTime = new Date(date).toLocaleTimeString();
   ).toLocaleTimeString();
 
 
+
   return (
     <main className="w-full min-h-screen py-24 md:py-24 lg:py-48">
       <div className="container px-4 md:px-6">

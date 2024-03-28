@@ -60,9 +60,9 @@ export default function CarouselPlugin() {
                 objectFit: 'contain',
               }} 
               priority 
-              className="absolute border-x-4 border-black" /> 
+              className="absolute" /> 
 
-              <h1 className="text-9xl uppercase" style={{ 
+              <h1 className="lg:text-9xl text-4xl uppercase" style={{ 
                 position: 'absolute', 
                 top: '50%', 
                 left: '50%', 

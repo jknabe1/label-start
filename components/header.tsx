@@ -117,7 +117,7 @@ const Menu: React.FC = () => {
     ))}
   </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 menu-link-item-holder">
     <div className="menu-info flex flex-col space-y-4">
       <h3 className="text-lg font-bold">Newsletter</h3>
       <input type="text" placeholder="E-post" className="w-full p-2 border-4 border-black dark:border-white bg-transparent" />

@@ -24,4 +24,9 @@ export const structure: StructureResolver = (S) =>
         .title('Data')
         .schemaType('data')
         .child(S.documentTypeList('data').title('Data')),
+      S.divider(),
+      S.listItem()
+        .title('Nyheter')
+        .schemaType('nyhet')
+        .child(S.documentTypeList('nyhet').title('Nyheter')),
     ])
