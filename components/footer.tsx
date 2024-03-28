@@ -20,7 +20,7 @@ const Footer = () => {
     <div>
     <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-4 border-black shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-black dark:border-white">
       <div className="flex justify-between items-center w-full">
-      <span className='flex items-center'>Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm' })}</span>
+      <span className='flex items-center'>Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm', timeStyle: 'short' })}</span>
         <li className="flex items-center">
           <ul><Link href={'//shop.kkrecords.se'}>Merch</Link></ul>
         </li>
