@@ -1,25 +1,49 @@
-import React from 'react';
+"use client"
 
-const employees = [
-  { name: 'Employee 1', image: 'image1.jpg' },
-  { name: 'Employee 2', image: 'image2.jpg' },
-  { name: 'Employee 3', image: 'image3.jpg' },
-  { name: 'Employee 4', image: 'image4.jpg' },
-  { name: 'Employee 5', image: 'image5.jpg' },
-  { name: 'Employee 6', image: 'image6.jpg' },
-];
+import React, { useEffect, useState } from 'react'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '@/sanity/client'
+
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: any) {
+  return builder.image(source)
+}
 
 const Page = () => {
-  return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {employees.map((employee, index) => (
-        <div key={index} style={{ flex: '0 0 50%', padding: '10px' }}>
-          <img src={employee.image} alt={employee.name} style={{ width: '100%' }} />
-          <p>{employee.name}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
+  const [teams, setteams] = useState([])
 
-export default Page;
+  useEffect(() => {
+    const fetchteams = async () => {
+      try {
+        const data = await client.fetch('*[_type == "team"]');
+        setteams(data);
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+      }
+    };
+  
+    fetchteams();
+  }, []);
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {teams.map((team: { slug: { current: string }, _id: string, name: string, image: any, Email: any[], Roll: any[] }) => (
+  team.slug && <div key={team._id} className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+    <a href={`/teams/${team.slug.current}`} className="w-full block h-full">
+      <img alt={team.name} src={urlFor(team.image).url()} className="max-h-40 w-full object-cover"/>
+      <div className="bg-white dark:bg-gray-800 w-full p-4">
+        <p className="text-indigo-500 text-md font-medium">
+          {team.name}
+        </p>
+        <p>Email: {team.Email[0].children[0].text}</p>
+        <p>Roll: {team.Roll[0].children[0].text}</p>
+      </div>
+    </a>
+  </div>
+))}
+    </div>
+  )
+}
+
+export default Page

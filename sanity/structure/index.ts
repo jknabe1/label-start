@@ -29,4 +29,9 @@ export const structure: StructureResolver = (S) =>
         .title('Nyheter')
         .schemaType('nyhet')
         .child(S.documentTypeList('nyhet').title('Nyheter')),
+      S.divider(),
+      S.listItem()
+        .title('Medarbetare')
+        .schemaType('team')
+        .child(S.documentTypeList('team').title('Medarbeterare')),
     ])

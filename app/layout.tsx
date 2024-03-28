@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="sv" suppressHydrationWarning >
         <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>    
-        <div className="border-x-4 border-black dark:border-white">    
+        <div className="border-x-4 border-black dark:border-white h-screen">    
         <ThemeProvider
             attribute="class" 
             defaultTheme="system"
