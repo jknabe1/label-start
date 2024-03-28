@@ -18,14 +18,12 @@ export const teamType = defineType({
       type: 'image',
     }),
     defineField({
-        name: 'Email',
-        type: 'array',
-        of: [{type: 'block'}],
+        name: 'email',
+        type: 'string',
       }),
     defineField({
-      name: 'Roll',
-      type: 'array',
-      of: [{type: 'block'}],
+      name: 'roll',
+      type: 'string',
     }),
   ],
 })
