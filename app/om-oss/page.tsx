@@ -28,20 +28,16 @@ const Page = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {teams.map((team: { slug: { current: string }, _id: string, name: string, image: any, Email: any[], Roll: any[] }) => (
-  team.slug && <div key={team._id} className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-    <a href={`/teams/${team.slug.current}`} className="w-full block h-full">
-      <img alt={team.name} src={urlFor(team.image).url()} className="max-h-40 w-full object-cover"/>
-      <div className="bg-white dark:bg-gray-800 w-full p-4">
-        <p className="text-indigo-500 text-md font-medium">
-          {team.name}
-        </p>
-        <p>Email: {team.Email[0].children[0].text}</p>
-        <p>Roll: {team.Roll[0].children[0].text}</p>
-      </div>
-    </a>
-  </div>
-))}
+      {teams.map((team: { _id: string, name: string, image: any }, index: number) => (
+        <div key={team._id} className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+            <img alt={team.name} src={urlFor(team.image).url()} className="max-h-40 w-full object-cover"/>
+            <div className="bg-white dark:bg-gray-800 w-full p-4">
+              <p className="text-indigo-500 text-md font-medium">
+                {team.name}
+              </p>
+            </div>
+        </div>
+      ))}
     </div>
   )
 }
