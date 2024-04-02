@@ -22,21 +22,24 @@ const Page = () => {
     fetchArtists()
   }, [])
 
+  const imageClasses = [
+    "object-cover h-72 w-full ",
+    "object-cover h-28 w-full  sm:col-span-2",
+    "object-cover h-96 w-full  sm:row-span-2",
+    "object-cover h-40 w-full  sm:col-span-2",
+    "object-cover h-60 w-full "
+  ];
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {artists.map((artist: { slug: { current: string }, _id: string, name: string, image: any }, index: number) => (
-        <div key={artist._id} className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-          <a href={`/artists/${artist.slug.current}`} className="w-full block h-full">
-            <img alt={artist.name} src={urlFor(artist.image).url()} className="max-h-40 w-full object-cover"/>
-            <div className="bg-white dark:bg-gray-800 w-full p-4">
-              <p className="text-indigo-500 text-md font-medium">
-                {artist.name}
-              </p>
-            </div>
-          </a>
-        </div>
-      ))}
-    </div>
+    <div className="flex justify-center items-center h-screen py-24">
+  <section className="grid sm:grid-cols-4 sm:grid-rows-2 w-full h-full p-7 rounded-xl gap-5 grid-cols-1 auto-rows-auto">
+    <img className="object-cover h-full w-full " src="https://images.unsplash.com/photo-1686918101049-d7fc95087424?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80"/>
+    <img className="object-cover h-full w-full  sm:col-span-2" src="https://images.unsplash.com/photo-1648614593495-e0955bf287e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"/>
+    <img className="object-cover h-full w-full  sm:row-span-2" src="https://images.unsplash.com/photo-1687273195751-14befe467d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1406&q=80"/>
+    <img className="object-cover h-full w-full  sm:col-span-2" src="https://images.unsplash.com/photo-1687812693663-c322b9af62a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"/>
+    <img className="object-cover h-full w-full " src="https://images.unsplash.com/photo-1685980201821-6577f4feec1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"/>
+  </section>
+</div>
   )
 }
 
