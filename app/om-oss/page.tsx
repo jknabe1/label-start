@@ -28,9 +28,8 @@ const Page = () => {
   }, []);
 
   return (
-    <div>
-<div className="relative h-64 md:h-80 bg-cover bg-center border-y-4 border-black bg-image pt-8" style={{ backgroundImage: 'url(https://source.unsplash.com/random)' }}>
-  <div className="absolute bottom-0 py-4 sm:py-8 md:py-12 pl-4 pr-8 sm:pr-16 md:pr-24 text-black bg-white border-r-4 border-t-4 border-black">
+    <div>        <div className="relative h-64 md:h-80 bg-cover bg-center border-y-4 border-black bg-image pt-8 mt-24" style={{ backgroundImage: 'url(https://source.unsplash.com/random)' }}>  
+  <div className="absolute bottom-0 py-8 sm:py-12 md:py-16 pl-4 pr-8 sm:pr-16 md:pr-24 text-black bg-white border-r-4 border-t-4 border-black">    
     <h1 className="text-2xl sm:text-3xl md:text-4xl">Om oss</h1>
     <p> 
       Vi är ett ideellt skivbolag som är en del av Kulturföreningen 019. Vi arbetar med att främja ungdomar, främst inom Örebro län. 
@@ -42,8 +41,8 @@ const Page = () => {
   </div>
 </div>
 <div>
-<h1 className='text-5xl'>Vi är en del av Kulturförening 019:</h1>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-48">
+<h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Vi är bakom</h1>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
       {teams.map((team: { _id: string, name: string, image: any, Email: any[], Roll: any[] }, index: number) => (
           <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
             <img 
@@ -56,7 +55,7 @@ const Page = () => {
                 {team.name}
               </p>
               <p className="flex items-center space-x-2">
-                <span>{team.Email && team.Email.length > 0 ? team.Email[0].children[0].text : 'E-post: ¯\_(ツ)_/¯'}</span>
+              <span>{team.Email && team.Email.length > 0 ? team.Email[0].children[0].text : 'E-post: ¯\\_(ツ)_/¯'}</span>
               </p>
               <p>Roll: {team.Roll && team.Roll.length > 0 ? team.Roll[0].children[0].text : 'saknas'}</p>
             </div>

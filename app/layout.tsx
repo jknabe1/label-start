@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>    
+        <body className={`${ibm.className} bg-[#fefefe] text-black dark:bg-black dark:text-white dark:border-x-white`}>    
         <div className="border-x-4 border-black dark:border-white">    
         <ThemeProvider
             attribute="class" 

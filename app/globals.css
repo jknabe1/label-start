@@ -75,7 +75,25 @@
   }
 }
 
+.c-newsletter-background-image.c-newsletter-filter-blue {
+  filter: url(#c-duotone__filter--blue)
+}
 
+.c-newsletter-background-image.c-newsletter-filter-green {
+  filter: url(#c-duotone__filter--green)
+}
+
+.c-newsletter-background-image.c-newsletter-filter-orange {
+  filter: url(#c-duotone__filter--orange)
+}
+
+.c-newsletter-background-image.c-newsletter-filter-red {
+  filter: url(#c-duotone__filter--red)
+}
+
+.c-newsletter-background-image.c-newsletter-filter-yellow {
+  filter: url(#c-duotone__filter--yellow)
+}
 
 a:hover{
   text-decoration: underline;

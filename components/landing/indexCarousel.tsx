@@ -20,12 +20,17 @@ function urlFor(source: any) {
 
 const artist_QUERY = `*[_type == "artist" && defined(slug.current)]{name, image}`;
 
+const words = ['MUSIK', 'LIVE', 'KULTUR', 'FÖR UNGDOMAR', 'HELT IDEELT']; 
+
+
 export default function CarouselPlugin() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000})
+    
   )
 
   const [artists, setArtists] = React.useState<SanityDocument[]>([]);
+  const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
     const fetchArtists = async () => {
@@ -36,6 +41,15 @@ export default function CarouselPlugin() {
     fetchArtists();
   }, []);
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 5300);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <Carousel
@@ -43,8 +57,8 @@ export default function CarouselPlugin() {
   className="w-full relative z-10" 
 >
   <CarouselContent>
-  {artists.map((artist, index) => (
-      <CarouselItem key={artist._id || index} className="h-screen w-screen">
+  {artists.map((artist, artistIndex) => (
+      <CarouselItem key={artist._id || artistIndex} className="h-screen w-screen">
         <div className="h-full w-full relative ">
           <Card className="h-full w-full absolute inset-0">
             <CardContent className="flex aspect-square items-center justify-center h-full w-full relative">
@@ -70,7 +84,7 @@ export default function CarouselPlugin() {
                 color: 'white', 
                 mixBlendMode: 'difference' 
               }}>
-                {artist.name}
+                {words[index]}
               </h1>
             </CardContent>
           </Card>
