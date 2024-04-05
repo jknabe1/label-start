@@ -1,8 +1,19 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+    if (currentHour >= 20 || currentHour < 6) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }, [setTheme]);
+
 
   return (
     <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">

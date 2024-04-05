@@ -4,6 +4,9 @@ module.exports = {
         {
           hostname: 'cdn.sanity.io',
         },
+        {
+          hostname: 'yt3.googleusercontent.com',
+        },
       ],
     },
   }

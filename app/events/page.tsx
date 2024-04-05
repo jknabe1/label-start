@@ -12,6 +12,24 @@ export default async function IndexPage() {
   const pastEvents = events.filter(event => new Date(event.date) < new Date());
 
   return (
+    <div>
+      <header className="lg:flex flex-col md:flex-row w-full border-b-4 border-black sm:border-b-4 dark:border-white">
+                <div className="flex flex-1 items-center justify-center p-4">
+                    <h1 className="text-4xl md:text-6xl font-bold">EVENTS & ARRANGEMANG</h1>
+                </div>
+                <div className="border-l-4 border-black dark:border-white" />
+                <div className="flex flex-1 items-center justify-center p-4">
+                    <div className='p-24'>
+                    <h2 className="text-xl md:text-3xl font-semibold mb-4">HÄNG MED OSS PÅ VÅRA EVENTS & ARRANGEMANG</h2>
+                    <p className="text-xs md:text-sm">
+                      Utöver att vara ett skivbolag så arrangear vi även konserter och andra event, men under namnet 019 dvs Kulturföreningen 019. Exempelvis arrangerar vi Ung & Punk, Örebro Punkfest, flertal Klubb Mono-kvällar och mycket mer tillsammans med lokala arrangörer.
+                    </p>
+                    <p className="text-xs md:text-sm mt-4">
+                      Här nedan hittar du all nödvändig information om våra kommande- och tidigare event. Vill du vara med och arrangera? Du är varmt välkommen till vår förening. Vänligen <Link href={"/kontakt"} className="underline">kontakta oss</Link> för mer information.
+                    </p>
+                    </div>
+                </div>
+        </header>
     <main className="flex flex-col items-center justify-center min-h-screen p-8">
       <div>
       <h2 className="text-3xl font-bold tracking-tighter text-center text-gray-700 mb-8 sm:text-4xl md:text-5xl">
@@ -27,6 +45,7 @@ export default async function IndexPage() {
       <EventList events={pastEvents} />
       </div>
     </main>
+    </div>
   );
 }
 
