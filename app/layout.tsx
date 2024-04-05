@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import Cursor from "@/components/cursor";
 import { ThemeProvider } from "@/components/theme-providers";
 import Screensaver from "@/components/screensaver";
+import NewsletterPopup from "@/components/newsletterPopup";
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -41,6 +42,7 @@ export default function RootLayout({
           >
         <Suspense fallback={<Loading/>}>
         <CookieNotice />
+        <NewsletterPopup/>
         <Header/>
         <Screensaver/>
         {children}

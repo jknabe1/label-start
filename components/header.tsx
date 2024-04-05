@@ -13,6 +13,8 @@ const menuLinks = [
   { path: "/", label: "Start" },
   { path: "/artists", label: "Artister" },
   { path: "/events", label: "Events" },
+  { path: "/nyheter", label: "Nyheter" },
+  { path: "https://shop.kkrecords.se", label: "Shop" },
   { path: "/om-oss", label: "Om oss" },
   { path: "/kontakt", label: "Kontakt" },
 ];
@@ -101,17 +103,17 @@ const Menu: React.FC = () => {
           </div>
         </div>
         <div className="menu-copy">
-          <div className="menu-links text-6xl">
-            {menuLinks.map((link, index) => (
-              <div key={index} className="menu-link-item">
-                <div className="menu-link-item-holder" onClick={toggleMenu}>
-                  <Link className="menu-link" href={link.path}>
-                    {link.label}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="menu-links text-6xl md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center">
+  {menuLinks.map((link, index) => (
+    <div key={index} className="menu-link-item">
+      <div className="menu-link-item-holder" onClick={toggleMenu}>
+        <Link className="menu-link " href={link.path}>
+          {link.label}
+        </Link>
+      </div>
+    </div>
+  ))}
+</div>
           <div className="menu-info">
             <Footer />
           </div>

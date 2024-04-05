@@ -99,64 +99,6 @@ a:hover{
   text-decoration: underline;
 }
 
-.menu-bar,
-.menu-overlay-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  padding: 1.5em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1;
-}
-
-.menu-bar a,
-.menu-open p {
-  color: #000;
-  cursor: pointer;
-  
-}
-
-.menu-close p {
-  color: #000;
-  cursor: pointer;
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  padding: 2em;
-  background: #fff;
-  z-index: 50;
-  display: flex;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
-}
-
-.menu-close-icon {
-  flex: 2;
-  display: flex;
-  align-items: flex-end;
-  cursor: pointer;
-}
-
-@media (max-width: 900px) {
-  .menu-close-icon {
-    display: none;
-  }
-
-  .menu-copy {
-    padding-top: 8em;
-  }
-
-  .menu-link-item-holder a {
-    font-size: 60px;
-  }
-}
 
 .cursor {
   position: fixed;
