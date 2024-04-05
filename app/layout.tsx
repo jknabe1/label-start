@@ -10,6 +10,8 @@ import Cursor from "@/components/cursor";
 import { ThemeProvider } from "@/components/theme-providers";
 import Screensaver from "@/components/screensaver";
 import Loglib from "@loglib/tracker/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -32,7 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>    
+        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>
+              
         <Loglib
                 config={{
                     id: "kkrecords",
@@ -52,6 +55,8 @@ export default function RootLayout({
         <Cursor/>
         {children}
         <Footer/>
+        <Analytics />
+        <SpeedInsights/>
         </Suspense>
         </ThemeProvider>
         </div>
