@@ -9,7 +9,7 @@ import { Suspense } from "react";
 import Cursor from "@/components/cursor";
 import { ThemeProvider } from "@/components/theme-providers";
 import Screensaver from "@/components/screensaver";
-import NewsletterPopup from "@/components/newsletterPopup";
+import Loglib from "@loglib/tracker/react";
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -33,6 +33,11 @@ export default function RootLayout({
   return (
     <html lang="sv" suppressHydrationWarning >
         <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>    
+        <Loglib
+                config={{
+                    id: "kkrecords",
+                }}
+            />
         <div className="min-h-screen border-x-4 border-black dark:border-white">    
         <ThemeProvider
             attribute="class" 
@@ -42,11 +47,10 @@ export default function RootLayout({
           >
         <Suspense fallback={<Loading/>}>
         <CookieNotice />
-        <NewsletterPopup/>
         <Header/>
         <Screensaver/>
+        <Cursor/>
         {children}
-        <Cursor />
         <Footer/>
         </Suspense>
         </ThemeProvider>
