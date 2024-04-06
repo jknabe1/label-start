@@ -54,7 +54,7 @@ const Page = () => {
             <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Styrelsen</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
-                  {teams.map((team: { _id: string, name: string, image: any, Email: any[], Roll: any[] }, index: number) => (
+                  {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }, index: number) => (
                       <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
@@ -70,9 +70,9 @@ const Page = () => {
                             {team.name}
                           </p>
                           <p className="flex items-center space-x-2">
-                          <span>{team.Email && team.Email.length > 0 ? team.Email[0].children[0].text : 'E-post: ¯\\_(ツ)_/¯'}</span>
+                            <span>{typeof team.email === 'string' && team.email.length > 0 ? team.email : 'E-post: ¯\\_(ツ)_/¯'}</span>
                           </p>
-                          <p>Roll: {team.Roll && team.Roll.length > 0 ? team.Roll[0].children[0].text : 'saknas'}</p>
+                          <p>Roll: {team.roll}</p>
                         </div>
                       </div>
                   ))}

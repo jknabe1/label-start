@@ -96,6 +96,7 @@ const Menu: React.FC = () => {
           </div>
           <div className="menu-close cursor-pointer">
             <img
+                alt="Close menu"
                 onClick={toggleMenu}
                 src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none'%3E%3Cpath d='M28.77 27.36L17.41 16 28.77 4.64l-1.41-1.41L16 14.59 4.64 3.23 3.23 4.64 14.59 16 3.23 27.36l1.41 1.41L16 17.41l11.36 11.36z' fill='%23000'/%3E%3C/svg%3E"
               >
