@@ -82,6 +82,10 @@
   font-weight: 800;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body{
   cursor: none;
   
@@ -108,7 +112,6 @@ a:hover{
   background-color: white;
   mix-blend-mode: difference;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
 }

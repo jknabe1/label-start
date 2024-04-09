@@ -11,8 +11,9 @@ const Cursor: React.FC = () => {
 
     const moveCursor = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e;
-      const cursorRadius = 10;
+      const cursorRadius = 10; // half the size of the cursor
     
+      // Ensure the cursor stays within the viewport
       const safeX = Math.min(Math.max(x, cursorRadius), window.innerWidth - cursorRadius);
       const safeY = Math.min(Math.max(y, cursorRadius), window.innerHeight - cursorRadius);
     
