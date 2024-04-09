@@ -19,7 +19,7 @@ export default async function IndexPage() {
                 </div>
                 <div className="border-l-4 border-black dark:border-white" />
                 <div className="flex flex-1 items-center justify-center p-4">
-                    <div className='p-24'>
+                    <div className='lg:p-24'>
                     <h2 className="text-xl md:text-3xl font-semibold mb-4">HÄNG MED OSS PÅ VÅRA EVENTS & ARRANGEMANG</h2>
                     <p className="text-xs md:text-sm">
                       Utöver att vara ett skivbolag så arrangear vi även konserter och andra event, men under namnet 019 dvs Kulturföreningen 019. Exempelvis arrangerar vi Ung & Punk, Örebro Punkfest, flertal Klubb Mono-kvällar och mycket mer tillsammans med lokala arrangörer.

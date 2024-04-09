@@ -7,9 +7,16 @@ const Cursor: React.FC = () => {
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
 
+    
+
     const moveCursor = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e;
-      cursor?.setAttribute('style', `top: ${y}px; left: ${x}px;`);
+      const cursorRadius = 10;
+    
+      const safeX = Math.min(Math.max(x, cursorRadius), window.innerWidth - cursorRadius);
+      const safeY = Math.min(Math.max(y, cursorRadius), window.innerHeight - cursorRadius);
+    
+      cursor?.setAttribute('style', `top: ${safeY}px; left: ${safeX}px;`);
     };
 
     document.addEventListener('mousemove', moveCursor);

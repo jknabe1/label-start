@@ -10,7 +10,7 @@ const Screensaver = () => {
 const resetTimer = () => {
     clearTimeout(timer as NodeJS.Timeout);
     setIsInactive(false);
-    timer = setTimeout(() => setIsInactive(true), 60000); // 60 seconds
+    timer = setTimeout(() => setIsInactive(true), 1800000); // 180 seconds
 };
 
   useEffect(() => {

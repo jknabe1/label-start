@@ -75,38 +75,41 @@
   }
 }
 
-.c-newsletter-background-image.c-newsletter-filter-blue {
-  filter: url(#c-duotone__filter--blue)
+@font-face {
+  font-family: 'Basement Grotesque Roman';
+  src: url('/public/fonts/BasementGrotesque-Black_v1.202.woff2') format('woff2'),
+       url('/public/fonts/BasementGrotesque-Black_v1.202.woff') format('woff');
+  font-weight: 800;
 }
 
-.c-newsletter-background-image.c-newsletter-filter-green {
-  filter: url(#c-duotone__filter--green)
+body{
+  cursor: none;
+  
 }
 
-.c-newsletter-background-image.c-newsletter-filter-orange {
-  filter: url(#c-duotone__filter--orange)
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Basement Grotesque Black', sans-serif;
+  text-transform: uppercase;
 }
 
-.c-newsletter-background-image.c-newsletter-filter-red {
-  filter: url(#c-duotone__filter--red)
-}
-
-.c-newsletter-background-image.c-newsletter-filter-yellow {
-  filter: url(#c-duotone__filter--yellow)
-}
 
 a:hover{
   text-decoration: underline;
 }
 
+* {
+  cursor: none;
+}
 
 .cursor {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
+  position: absolute;
   width: 20px;
   height: 20px;
+  background-color: white;
+  mix-blend-mode: difference;
   border-radius: 50%;
-  background: #000;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
 }
+

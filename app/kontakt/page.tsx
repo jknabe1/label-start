@@ -49,7 +49,7 @@ const Page: React.FC = () => {
                 </div>
                 <div className="border-l-4 border-black dark:border-white" />
                 <div className="flex flex-1 items-center justify-center p-4">
-                    <div className='p-24'>
+                    <div className='lg:p-24'>
                     <h2 className="text-xl md:text-3xl font-semibold mb-4">VI VÄNTAR PÅ DITT MEDDELANDE</h2>
                     <p className="text-xs md:text-sm">
                         Om du har några frågor om vår verksamhet eller vill skicka in en demo, tveka inte att kontakta oss. Detta formulär är det bästa sättet att nå oss och alla meddelande kommer att besvaras så snart som möjligt.

@@ -39,7 +39,7 @@ const Page = () => {
                 <div className="flex flex-1 items-center justify-center p-4">
                     <div className='p-24'>
                     <h2 className="text-xl md:text-3xl font-semibold mb-4">LÄR DIG MER OM OSS OCH VILKA VI ÄR</h2>
-                    <p className="text-xs md:text-sm">
+                    <div className="text-xs md:text-sm">
                       <p> 
                         Vi är ett ideellt skivbolag som är en del av Kulturföreningen 019. Vi arbetar med att främja ungdomar, främst inom Örebro län. 
                         Vi arbetar inom kultursektorn och har en bred verksamhet som sträcker sig från musikproduktion till evenemang och utbildning. Läs mer nedan om varför- och hur vi arbetar med vårt syfte och ändamål.
@@ -47,7 +47,7 @@ const Page = () => {
                     <p className="text-xs md:text-sm mt-4">
                       Alla är välkomna att vara med och driva föreningen! Vänligen <Link href={"/kontakt"} className="underline">kontakta oss</Link> för mer information. Hos oss finns det något för alla, oavsett om du är intresserad av musik, kultur, evenemang eller vill engagera dig ideellt.
                     </p>
-                    </p>
+                    </div>
                     </div>
                 </div>
             </header>

@@ -2,7 +2,7 @@ import CarouselPlugin from "@/components/landing/indexCarousel";
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ overflowY: 'hidden' }}>
       <CarouselPlugin />
     </main>
   );

@@ -13,6 +13,8 @@ import imageUrlBuilder from "@sanity/image-url";
 import { Image } from "next-sanity/image";
 import { client } from "@/sanity/client";
 
+
+
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
   return builder.image(source);
@@ -59,9 +61,9 @@ export default function CarouselPlugin() {
   <CarouselContent>
   {artists.map((artist, artistIndex) => (
       <CarouselItem key={artist._id || artistIndex} className="h-screen w-screen">
-        <div className="h-full w-full relative ">
-          <Card className="h-full w-full absolute inset-0">
-            <CardContent className="flex aspect-square items-center justify-center h-full w-full relative">
+        <div className="h-full w-full relative  ">
+          <Card className="h-full w-full absolute inset-0 ">
+            <CardContent className="flex aspect-square items-center justify-center h-full w-full relative ">
               <Image 
               src={urlFor(artist.image).url()} 
               alt={artist.name} 
@@ -70,11 +72,12 @@ export default function CarouselPlugin() {
               height={'1'}
               style={{
                 width: '100%',
-                height: 'auto',
-                objectFit: 'contain',
+                height: '100%',
+                objectFit: 'cover',
               }} 
               priority 
-              className="absolute" /> 
+              className="absolute" 
+              /> 
 
               <h1 className="lg:text-9xl text-4xl uppercase" style={{ 
                 position: 'absolute', 
