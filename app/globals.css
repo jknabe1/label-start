@@ -82,6 +82,10 @@
   font-weight: 800;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 * {
   box-sizing: border-box;
 }

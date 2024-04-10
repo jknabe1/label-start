@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CommandInput, CommandEmpty, CommandShortcut, CommandItem, CommandGroup, CommandList, Command } from "@/components/ui/accessibility/accessibility-command"
 import { JSX, SVGProps } from "react"
 import { ModeToggle } from './ui/theme-button';
-import { Accessibility } from 'lucide-react'
+import { Accessibility } from 'lucide-react';
 
 const AccessibilityButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ const AccessibilityButton = () => {
       {isOpen && (
         <div className="fixed bottom-0 right-0 bg-white border-4 border-black dark:bg-black dark:border-white">
           <button className="absolute top-0 right-0 p-2" onClick={toggleOpen}>
-            <p>X</p>
+            <p>Stäng</p>
           </button>
            <Command>
         <CommandInput aria-label="Sök efter kommando" placeholder="Sök..." />
