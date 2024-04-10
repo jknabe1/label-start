@@ -1,167 +1,148 @@
-import { PortableText } from "@portabletext/react";
-import { SanityDocument } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
-import { Image } from "next-sanity/image";
-import { FacebookShareButton, TwitterShareButton, LinkedinShareButton, FacebookIcon, TwitterIcon, LinkedinIcon } from 'react-share';
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { client } from "@/sanity/client";
-import Link from "next/link";
-import "@/app/globals.css";
+"use client"
 
-const NEWS_QUERY = `*[_type == "nyhet" && slug.current == $slug][0]{
-  name,
-  slug,
-  image,
-  details
-}`;
+import React, { useEffect, useState } from 'react'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '@/sanity/client'
+import Link from 'next/link'
+import Image from 'next/image'
 
-const { projectId, dataset } = client.config();
-export const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+const builder = imageUrlBuilder(client)
 
-export default async function page({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const news = await client.fetch<SanityDocument>(NEWS_QUERY, params);
-  const {
-    name,
-    slug,
-    image,
-    details
-  } = news;
+function urlFor(source: any) {
+  return builder.image(source)
+}
+
+export const page = () => {
+  const [news, setNews] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [visible, setVisible] = useState(3)
+
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const data = await client.fetch('*[_type == "news" && defined(slug.current)]{_id, name, slug, image, excerpt}|order(date desc)');
+        setNews(data);
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching news:', error);
+        setLoading(false)
+      }
+    };
   
+    fetchNews();
+  }, []);
 
-const page = () => {
+  const filteredNews = news.filter((newsItem: { name: string }) =>
+    newsItem.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const loadMore = () => {
+    setVisible((prevValue) => prevValue + 5);
+  };
+
   return (
     <div>
-      <section className="w-full">
-      <header className="bg-white text-zinc-900 py-4 border-b">
-        <div className="container mx-auto px-4 md:px-6">
-          <nav className="flex items-center justify-between">
-            <div className="text-2xl font-bold">News Site</div>
-            <div className="space-x-4">
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Home
-              </Link>
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Politics
-              </Link>
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Business
-              </Link>
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Tech
-              </Link>
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Culture
-              </Link>
-              <Link className="text-zinc-900 hover:text-zinc-700" href="#">
-                Sports
-              </Link>
+          <header className="lg:flex flex-col md:flex-row w-full border-b-4 border-black sm:border-b-4 dark:border-white">
+                <div className="flex flex-1 items-center justify-center p-4">
+                    <h1 className="text-4xl md:text-6xl font-bold">VAD HÄNDER HOS OSS?</h1>
+                </div>
+                <div className="border-l-4 border-black dark:border-white" />
+                <div className="flex flex-1 items-center justify-center p-4">
+                    <div className='lg:p-24'>
+                    <h2 className="text-xl md:text-3xl font-semibold mb-4">For the record</h2>
+                    <p>
+                    Har du funderingar om vad som händer hos oss? Här kan du läsa om det senaste som händer hos oss. Vi uppdaterar regelbundet med nyheter om våra konserter och evenemang. Du kan även läsa om våra artister och band som spelar hos oss.
+                    </p>
+                    <br/>
+                    <p>
+                    Bortsett från mindre rolig formalia och nyheter så kommer vi även att använda denna sida som en liten journal/blogg för att dela med oss om vad som händer bakom kulisserna. Till exempel, vad händer på kontoret denna fredag - you name it.
+                    </p>
+                    </div>
+                </div>
+        </header>
+        <section className="w-full">
+        <main className="container mx-auto px-4 md:px-6 py-24">
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4">Det senaste</h2>
+            {loading ? (
+            <div>Ha tålamod...</div> 
+            ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {news && news.slice(0, 1).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
+            <div key={index}>
+                  <Image
+                    alt={news.name}
+                    className="w-full h-64 object-cover object-center border-4 border-black dark:border-white"
+                    src={urlFor(news.image).url() || 'Misslyckad hämtning av bild'}
+                    width={'1'}
+                    height={'1'}
+                    style={{
+                      width: '100%',
+                      height: '16rem',
+                      objectFit: 'cover',
+                    }} 
+                    loading='lazy' 
+                  />
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-xl font-bold my-2">{news.name}</h3>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {news.excerpt || 'Misslyckad hämtning av utdrag'}
+                    </p>
+                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/}`}>
+                      Read More
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
-          </nav>
-        </div>
-      </header>
-      <main className="container mx-auto px-4 md:px-6 py-8">
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Top Story</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <img
-                alt="Top Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-xl font-bold mb-2">Top Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the top story. Click the link to read more.
-              </p>
-              <Link className="text-blue-500 hover:text-blue-700 mt-4" href="#">
-                Read More
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Politics</h2>
+            )}
+          </section>
+          <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">Tidigare</h2>
+          
+          <input className="p-4 mb-8 border-2 border-black bg-white h-10 w-full text-sm" type="text" placeholder="Vad vill du hitta..?" onChange={(event) => setSearchTerm(event.target.value)}/>
+            
+          {filteredNews.length === 0 ? (
+            <div>Här var det tomt - vi får börja skriva mer</div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {filteredNews.slice(0, visible).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
             <div>
-              <img
-                alt="Politics Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
+            <div key={news._id}>
+              <Image
+                alt={news.name}
+                className="w-full h-64 object-cover object-center border-4 border-black dark:border-white"
                 height="400"
-                src="/placeholder.svg"
+                src={news.image ? urlFor(news.image).url() : 'Misslyckad hämtning av bild'}
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
+                loading='lazy'
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">{news.name}</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
+                {news.excerpt}
               </p>
               <Link className="text-blue-500 hover:text-blue-700 mt-4" href="#">
-                Read More
+                Läs mer
               </Link>
             </div>
-            <div>
-              <img
-                alt="Politics Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
-              </p>
-              <Link className="text-blue-500 hover:text-blue-700 mt-4" href="#">
-                Read More
-              </Link>
             </div>
-            <div>
-              <img
-                alt="Politics Story Image"
-                className="w-full h-64 object-cover object-center rounded-lg"
-                height="400"
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">Politics Story Headline</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
-              </p>
-              <Link className="text-blue-500 hover:text-blue-700 mt-4" href="#">
-                Read More
-              </Link>
-            </div>
+          ))}
           </div>
-        </section>
+      )}
+          <button className="px-4 py-2 mt-8 bg-white border-2 border-black text-black hover:bg-black hover:text-white" onClick={loadMore}>
+            {visible < filteredNews.length ? 'Hämta fler' : 'Slut :('} 
+          </button>        
+        </section>        
       </main>
     </section>
-    </div>
-  )
+    </div>  
+    )
 }
-}
+
+export default page

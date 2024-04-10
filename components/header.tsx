@@ -65,8 +65,8 @@ const Menu: React.FC = () => {
   
 
   return (
-    <div className="menu-container relative z-50" ref={container}> 
-      <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black">
+  <div className="menu-container relative z-50 " ref={container}> 
+    <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black box-border overflow-y-auto pr-4">        
         <div className="menu-logo">
           <a href="/" aria-label="Go to homepage"  title="Homepage">
           <img

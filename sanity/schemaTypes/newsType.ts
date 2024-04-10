@@ -4,7 +4,7 @@ import {BookIcon} from '@sanity/icons'
 
 
 export const newsType = defineType({
-  name: 'nyhet',
+  name: 'news',
   title: 'Nyheter',
   type: 'document',
   icon: BookIcon,
@@ -26,6 +26,10 @@ export const newsType = defineType({
       validation: (rule) => rule
       .required()
       .error(`Required to generate a page on the website`),
+    }),
+    defineField({
+      name: 'excerpt',
+      type: 'string',
     }),
     defineField({
       name: 'image',

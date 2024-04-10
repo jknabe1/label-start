@@ -19,18 +19,21 @@ export function ModeToggle() {
     setTheme(isDark ? 'light' : 'dark');
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: { shiftKey: any; key: string; }) => {
+      if (event.shiftKey && event.key === 'D') {
+        handleToggle();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, 
+  [handleToggle]);
+
   return (
-    <div>
-      <input
-        type="checkbox"
-        checked={isDark}
-        onChange={handleToggle}
-        className="toggle-checkbox"
-        id="toggle-new"
-      />
-      <label className="toggle-label" htmlFor="toggle-new">
-        <span className="toggle-text">{isDark ? 'Dark' : 'Light'}</span>
-      </label>
-    </div>
+          <button onClick={handleToggle}>{isDark ? 'Ljust' : 'Mörkt'}</button>
   );
 }

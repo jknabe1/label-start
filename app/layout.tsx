@@ -6,7 +6,6 @@ import Header from "@/components/header";
 import CookieNotice from "@/components/cookieNotice";
 import Loading from "@/components/preLoader";
 import { Suspense } from "react";
-import Cursor from "@/components/cursor";
 import { ThemeProvider } from "@/components/theme-providers";
 import Screensaver from "@/components/screensaver";
 import Loglib from "@loglib/tracker/react";
@@ -52,7 +51,6 @@ export default function RootLayout({
         <CookieNotice />
         <Header/>
         <Screensaver/>
-        <Cursor/>
         {children}
         <Footer/>
         <Analytics />

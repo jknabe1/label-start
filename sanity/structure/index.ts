@@ -27,8 +27,8 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       S.listItem()
         .title('Nyheter')
-        .schemaType('nyhet')
-        .child(S.documentTypeList('nyhet').title('Nyheter')),
+        .schemaType('news')
+        .child(S.documentTypeList('news').title('Nyheter')),
       S.divider(),
       S.listItem()
         .title('Medarbetare')

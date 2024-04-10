@@ -86,11 +86,6 @@
   box-sizing: border-box;
 }
 
-body{
-  cursor: none;
-  
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Basement Grotesque Black', sans-serif;
   text-transform: uppercase;
@@ -101,18 +96,14 @@ a:hover{
   text-decoration: underline;
 }
 
-* {
-  cursor: none;
+::selection {
+  background-color: black;
+  color: white;
 }
 
-.cursor {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
+.dark{
+  ::selection {
+    background-color: white;
+    color: black;
+  }
 }
-
