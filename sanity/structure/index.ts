@@ -34,4 +34,9 @@ export const structure: StructureResolver = (S) =>
         .title('Medarbetare')
         .schemaType('team')
         .child(S.documentTypeList('team').title('Medarbeterare')),
+        S.divider(),
+      S.listItem()
+        .title('Sponsor/samarbetspartner')
+        .schemaType('sponsor')
+        .child(S.documentTypeList('sponsor').title('Sponsor/samarbetspartner')),
     ])

@@ -15,6 +15,7 @@ function urlFor(source: any) {
 
 const Page = () => {
   const [teams, setteams] = useState([])
+  const [sponsor, setsponsor] = useState([])
 
   useEffect(() => {
     const fetchteams = async () => {
@@ -28,6 +29,20 @@ const Page = () => {
   
     fetchteams();
   }, []);
+
+  useEffect(() => {
+    const fetchsponsors = async () => {
+      try {
+        const data = await client.fetch('*[_type == "sponsor"]');
+        setsponsor(data);
+      } catch (error) {
+        console.error('Error fetching sponsor:', error);
+      }
+    };
+  
+    fetchsponsors();
+  }, []);
+
 
   return (
     <div>
@@ -45,15 +60,37 @@ const Page = () => {
                     </p>
                     <br/>
                     <p>
-                    Alla är välkomna att vara med och driva föreningen! Vänligen <Link href={"/kontakt"} className="underline">kontakta oss</Link> för mer information. Hos oss finns det något för alla, oavsett om du är intresserad av musik, kultur, evenemang eller vill engagera dig ideellt.
+                    Alla är välkomna att vara med och driva föreningen! Vänligen <Link href={"/kontakt"} className="underline">kontakta oss</Link> för mer information. Hos oss finns det något för alla, 
+                    oavsett om du är intresserad av musik, kultur, arrangemang eller vill engagera dig ideellt. I vissa fall kan vi även ta emot praktikanter från KAA.
                     </p>
                     </div>
                 </div>
         </header>
+        <div className='lg:py-48 sm:py-12 '>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
+    <div className="border-4 border-black dark:border-white m-auto overflow-x-hidden col-span-full sm:col-span-2 md:col-span-3"> {/* Here's the change */}
+        <img 
+            className='w-full h-full object-cover'
+            height={1920}
+            alt="{team.name}"
+            width={1080}
+            src="/assets/B05I6324.png"
+            style={{
+                width: '100%',
+                height: "full",
+            }}
+        />
+    </div>
+</div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Vad är K&K Records</h1>
+            <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
+
+            </div>
             <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Styrelsen</h1>
+            <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
-                  {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }, index: number) => (
+                  {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (
                       <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
@@ -77,7 +114,31 @@ const Page = () => {
                   ))}
                 </div>
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Styrelsen</h1>
+            <div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Tack till</h1> 
+            <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också synas här? Vänligen <Link className='underline' href={`/news/}`}>kontakta</Link> oss för mer info.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48"> 
+            {sponsor && sponsor.map((sponsor: { _id: string, name: string, image: any, }) => ( 
+            <div key={sponsor._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden"> 
+            <Image 
+            height={320} 
+            alt={sponsor.name} 
+            width={1080} 
+            src={sponsor.image ? urlFor(sponsor.image).url() : 'https://yt3.googleusercontent.com/_iy1wEEEoVUc1be5OCm2nCZFBWIJIh_NuCeVzEefoNcatrOqHKDKkSvBfDRpjWm1_wBvSuyBOw=s900-c-k-c0x00ffffff-no-rj'} 
+            style={{ width: '100%', }} 
+            /> 
+            <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white"> 
+            <p className="text-black dark:text-white text-md font-medium"> {sponsor.name} </p> 
+            </div> 
+            </div> 
+          ))} 
+            </div>
+            <p className='text-center'>...och alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch! Stort tack till er också.</p> 
+            </div>
+            <div className='flex flex-col items-center justify-center min-h-screen'>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Bli medlem och få AAA-brickan</h1>
+            </div>
+            
     </div>
   )
 }
