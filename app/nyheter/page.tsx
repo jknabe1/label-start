@@ -12,7 +12,7 @@ function urlFor(source: any) {
   return builder.image(source)
 }
 
-export const page = () => {
+export const Page = () => {
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
@@ -145,4 +145,4 @@ export const page = () => {
     )
 }
 
-export default page
+export default Page
