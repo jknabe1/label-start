@@ -73,7 +73,7 @@ const Menu: React.FC = () => {
 
   return (
   <div className="menu-container relative z-50 " ref={container}> 
-    <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black box-border overflow-y-auto pr-4">        
+    <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black box-border overflow-y-auto">        
         <div className="menu-logo">
           <a href="/" aria-label="Go to homepage"  title="Homepage">
           <img
@@ -86,7 +86,10 @@ const Menu: React.FC = () => {
         </div>
         <div className="menu-open" onClick={toggleMenu}>    
         <button data-cursor="true">
-          menu
+          <img
+          alt="Open menu"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4NSIgaGVpZ2h0PSIzMyIgdmlld0JveD0iMCAwIDg1IDMzIj4KICA8ZyBpZD0iR3JvdXBfODMiIGRhdGEtbmFtZT0iR3JvdXAgODMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0wLjM3OSAtMC4zOTUpIj4KICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfMzIxIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAzMjEiIHdpZHRoPSI4NSIgaGVpZ2h0PSIxMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4zNzggMC4zOTUpIi8+CiAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlXzMyMiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMzIyIiB3aWR0aD0iODUiIGhlaWdodD0iMTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMzc4IDIyLjM5NSkiLz4KICA8L2c+Cjwvc3ZnPgo="
+          />
           </button>    
         </div>
       </div>

@@ -70,15 +70,11 @@ const Page = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
     <div className="border-4 border-black dark:border-white m-auto overflow-x-hidden col-span-full sm:col-span-2 md:col-span-3"> {/* Here's the change */}
         <Image
-            className='w-full h-full object-cover'
+            className='object-cover'
             height={1920}
             alt="{team.name}"
             width={1080}
             src="/assets/B05I6324.png"
-            style={{
-                width: '100%',
-                height: "full",
-            }}
             loading='lazy'
         />
     </div>
@@ -213,10 +209,10 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            Det ska vara lätt.
+                            <b>Full transparens.</b>
                           </p>
                           <p>
-                            Vi 
+                            Vi omfattas inte av offentlighetsprincipen men vi tycker ändå att det ska gå att ha full insyn hos oss.
                           </p>
                         </div>
                       </div>

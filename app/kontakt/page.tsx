@@ -61,7 +61,7 @@ const Page: React.FC = () => {
                     </div>
                 </div>
             </header>
-            <div>
+            <div className='m-8 md:pb-24'>
             {isSubmitted ? (
                     <div className="flex justify-center items-center h-screen">
                     <h2>Message sent</h2>
