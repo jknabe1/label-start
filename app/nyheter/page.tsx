@@ -71,7 +71,7 @@ export const Page = () => {
             ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {news && news.slice(0, 1).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
-            <div key={index}>
+            <div key={news._id}>
                   <Image
                     alt={news.name}
                     className="w-full h-64 object-cover object-center border-4 border-black dark:border-white"
