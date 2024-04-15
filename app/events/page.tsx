@@ -41,7 +41,7 @@ export default async function IndexPage() {
       <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white mb-8 sm:text-4xl md:text-5xl mt-12">
         Tidigare event
       </h2>
-      <p>Vill du veta mer om våra tidigare arrangemang? Läs mer nedan! </p>
+      <p className="mb-4">Vill du veta mer om våra tidigare arrangemang? Läs mer nedan... </p>
       <EventList events={pastEvents} />
       </div>
     </main>
