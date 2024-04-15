@@ -22,7 +22,7 @@ export const Page = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const data = await client.fetch('*[_type == "news" && defined(slug.current)]{_id, name, slug, image, excerpt}|order(date desc)');
+        const data = await client.fetch('*[_type == "news"  && featured == true && defined(slug.current)]{_id, name, slug, image, excerpt}|order(date desc)');
         setNews(data);
         setLoading(false)
       } catch (error) {
@@ -65,12 +65,12 @@ export const Page = () => {
         <section className="w-full">
         <main className="container mx-auto px-4 md:px-6 py-24">
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">Det senaste</h2>
+            <h2 className="text-2xl font-bold mb-4">Lite extra viktigt</h2>
             {loading ? (
             <div>Ha tålamod...</div> 
             ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {news && news.slice(0, 1).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
+            {news && news.filter((newsItem: { featured: boolean }) => newsItem.featured).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string, featured: boolean }, index: number) => (                
             <div key={news._id}>
                   <Image
                     alt={news.name}
@@ -90,7 +90,7 @@ export const Page = () => {
                     <p className="text-zinc-500 dark:text-zinc-400">
                       {news.excerpt || 'Misslyckad hämtning av utdrag'}
                     </p>
-                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/}`}>
+                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/${news.slug}`}>
                       Read More
                     </Link>
                   </div>
@@ -102,39 +102,39 @@ export const Page = () => {
           <section className="mb-8">
           <h2 className="text-2xl font-bold mb-4">Tidigare</h2>
           
-          <input className="p-4 mb-8 border-2 border-black bg-white h-10 w-full text-sm" type="text" placeholder="Vad vill du hitta..?" onChange={(event) => setSearchTerm(event.target.value)}/>
+          <input className="p-4 mb-8 border-2 border-black bg-white dark:bg-black dark:border-white h-10 w-full text-sm" type="text" placeholder="Vad vill du hitta..?" onChange={(event) => setSearchTerm(event.target.value)}/>
             
           {filteredNews.length === 0 ? (
-            <div>Här var det tomt - vi får börja skriva mer</div>
+            <div key="empty">Här var det tomt - vi får börja skriva mer</div>
           ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {filteredNews.slice(0, visible).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
-            <div>
-            <div key={news._id}>
-              <Image
-                alt={news.name}
-                className="w-full h-64 object-cover object-center border-4 border-black dark:border-white"
-                height="400"
-                src={news.image ? urlFor(news.image).url() : 'Misslyckad hämtning av bild'}
-                style={{
-                  aspectRatio: "600/400",
-                  objectFit: "cover",
-                }}
-                loading='lazy'
-                width="600"
-              />
-              <h3 className="text-xl font-bold mb-2 mt-4">{news.name}</h3>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                {news.excerpt}
-              </p>
-              <Link className="text-blue-500 hover:text-blue-700 mt-4" href="#">
-                Läs mer
-              </Link>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {filteredNews.slice(0, visible).map((news: { _id: string, name: string, excerpt: string, image: any, slug: string }, index: number) => (                
+                <div key={news._id}>
+                  <div>
+                    <Image
+                      alt={news.name}
+                      className="w-full h-64 object-cover object-center border-4 border-black dark:border-white"
+                      height="400"
+                      src={news.image ? urlFor(news.image).url() : 'Misslyckad hämtning av bild'}
+                      style={{
+                        aspectRatio: "600/400",
+                        objectFit: "cover",
+                      }}
+                      loading='lazy'
+                      width="600"
+                    />
+                    <h3 className="text-xl font-bold mb-2 mt-4">{news.name}</h3>
+                    <p className="text-zinc-500 dark:text-zinc-400">
+                      {news.excerpt}
+                    </p>
+                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/${news.slug.current}`}>
+                      Läs mer
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
-            </div>
-          ))}
-          </div>
-      )}
+          )}
           <button className="px-4 py-2 mt-8 bg-white border-2 border-black text-black hover:bg-black hover:text-white" onClick={loadMore}>
             {visible < filteredNews.length ? 'Hämta fler' : 'Slut :('} 
           </button>        

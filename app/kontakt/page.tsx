@@ -7,40 +7,6 @@ const Page: React.FC = () => {
     const [category, setCategory] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-
-    async function handleSubmit(e: { preventDefault: () => void; target: { name: { value: any; }; email: { value: any; }; message: { value: any; }; }; }) {
-        e.preventDefault();
-
-        const form = e.target as typeof e.target & {
-            name: { value: string };
-            email: { value: string };
-            message: { value: string };
-          };
-        
-          const name = form.name.value;
-          const email = form.email.value;
-          const message = form.message.value;
-
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                access_key: "43735a4f-fd97-4c61-a7d1-08a9df63804e",
-                name: e.target.name.value,
-                email: e.target.email.value,
-                message: e.target.message.value,
-            }),
-        });
-        const result = await response.json();
-        if (result.success) {
-            console.log(result);
-        }
-        setIsSubmitted(true);
-    };
-
     return (
         <div>
             <header className="lg:flex flex-col md:flex-row w-full border-b-4 border-black sm:border-b-4 dark:border-white">
@@ -67,12 +33,11 @@ const Page: React.FC = () => {
                     <h2>Message sent</h2>
                     </div>
                 ) : (
-            <form className="space-y-4 mx-auto w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e as unknown as { preventDefault: () => void; target: { name: { value: any; }; email: { value: any; }; message: { value: any; }; }; })}>          <div>
-            <label className="block font-medium text-gray-700 text-3xl" htmlFor="category">Category</label>
+            <form className="space-y-4 mx-auto w-full sm:w-3/4 md:w-1/2 lg:w-1/3 p-6" >          <div>
             <select className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white  shadow-sm focus:outline-none  sm:text-sm" name="category" required onChange={(e) => setCategory(e.target.value)}>
               <option  value="">Kategori</option>
               <option value="question">Generell fråga</option>
-              <option value="demo">Demo/medverka på konsert</option>
+              <option value="demo">Demo och- eller medverka på konsert</option>
               <option value="website">Rappotera fel eller feedback om hemsidan</option>
             </select>
           </div>
@@ -119,7 +84,7 @@ const Page: React.FC = () => {
                 <label className="block text-sm font-medium text-gray-700" htmlFor="question">Feedback</label>
                 <textarea className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" name="question" required rows={3} placeholder="T.ex: denna länk fungerar inte"></textarea>
                 <label className="block text-sm font-medium text-gray-700" htmlFor="epost">E-post - inte obligatoriskt men ifall vi behöver kontakta dig för mer info</label>
-                <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="email" name="bandName" required placeholder="Din e-post" />
+                <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="email" name="email" placeholder="Din e-post" />
             </div>
             )}
             <div>
@@ -129,8 +94,8 @@ const Page: React.FC = () => {
                 </label>
             </div>
             <div className="flex justify-center">
-                <button type="submit" className="mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Submit
+            <button type='submit' className="mr-2 px-4 py-2 bg-white border-4 border-black text-black hover:bg-black hover:text-white">
+                    Skicka
                 </button>
             </div>
         </form>

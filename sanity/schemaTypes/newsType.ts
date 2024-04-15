@@ -28,6 +28,12 @@ export const newsType = defineType({
       .error(`Required to generate a page on the website`),
     }),
     defineField({
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured',
+      description: 'Check this if the news item should be featured',
+    }),
+    defineField({
       name: 'excerpt',
       type: 'string',
     }),
