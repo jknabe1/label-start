@@ -22,9 +22,6 @@ function urlFor(source: any) {
 
 const artist_QUERY = `*[_type == "artist" && defined(slug.current)]{name, image}`;
 
-const words = ['MUSIK', 'LIVE', 'KULTUR', 'FÖR UNGDOMAR', 'HELT IDEELT']; 
-
-
 export default function CarouselPlugin() {
   const plugin = React.useRef(
     Autoplay({ delay: 5000})
@@ -43,15 +40,6 @@ export default function CarouselPlugin() {
     fetchArtists();
   }, []);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 5300);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <Carousel
@@ -87,7 +75,7 @@ export default function CarouselPlugin() {
                 color: 'white', 
                 mixBlendMode: 'difference' 
               }}>
-                {words[index]}
+                {artist.name}
               </h1>
             </CardContent>
           </Card>

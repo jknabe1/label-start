@@ -81,7 +81,7 @@ const Page = () => {
 </div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Vad är K&K Records</h1>
             <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-48">
                       <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
