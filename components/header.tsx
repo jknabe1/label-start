@@ -14,7 +14,7 @@ const menuLinks = [
   { path: "/artists", label: "Artister" },
   { path: "/events", label: "Events" },
   { path: "/nyheter", label: "Nyheter" },
-  { path: "https://shop.kkrecords.se", label: "Shop" },
+  { path: "/shop", label: "Shop" },
   { path: "/om-oss", label: "Om oss" },
   { path: "/kontakt", label: "Kontakt" },
 ];

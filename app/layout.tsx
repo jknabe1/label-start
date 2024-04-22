@@ -40,7 +40,7 @@ export default function RootLayout({
                     id: "kkrecords",
                 }}
             />
-        <div className="min-h-screen border-x-4 border-black dark:border-white">    
+        <div className="min-h-screen border-x-4 border-black dark:border-white border-solid">    
         <ThemeProvider
             attribute="class" 
             defaultTheme="system"
