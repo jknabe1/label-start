@@ -22,6 +22,7 @@ function urlFor(source: any) {
 
 const artist_QUERY = `*[_type == "artist" && defined(slug.current)]{name, image}`;
 
+const words = ['MUSIK', 'LIVE', 'KULTUR', 'FÖR UNGDOMAR', 'HELT IDEELT']; 
 
 
 export default function CarouselPlugin() {
@@ -69,7 +70,7 @@ export default function CarouselPlugin() {
               className="absolute" 
               /> 
 
-              <h1 className="lg:text-9xl text-4xl uppercase" style={{ 
+              <h1 className="lg:text-8xl text-4xl uppercase" style={{ 
                 position: 'absolute', 
                 top: '50%', 
                 left: '50%', 
