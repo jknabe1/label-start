@@ -127,9 +127,9 @@ export const Page = () => {
                     <p className="text-zinc-500 dark:text-zinc-400">
                       {news.excerpt}
                     </p>
-                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/${news.slug.current}`}>
+                    <a className="text-blue-500 hover:text-blue-700 mt-4" href={`/nyheter/${news.slug}`}>
                       Läs mer
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}

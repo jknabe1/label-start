@@ -15,7 +15,7 @@ export default async function IndexPage() {
     <div>
       <header className="lg:flex flex-col md:flex-row w-full border-b-4 border-black sm:border-b-4 dark:border-white">
                 <div className="flex flex-1 items-center justify-center p-4">
-                    <h1 className="text-4xl md:text-6xl font-bold">EVENTS & ARRANGEMANG</h1>
+                    <h1 className="text-4xl md:text-6xl font-bold">ARRANGEMANG</h1>
                 </div>
                 <div className="border-l-4 border-black dark:border-white" />
                 <div className="flex flex-1 items-center justify-center p-4">
@@ -33,13 +33,13 @@ export default async function IndexPage() {
     <main className="flex flex-col items-center justify-center min-h-screen p-8 mb-12">
       <div>
       <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white mb-8 sm:text-4xl md:text-5xl">
-        Kommande event
+        Kommande 
       </h2>
       <EventList events={upcomingEvents} />
       </div>
       <div>
       <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white mb-8 sm:text-4xl md:text-5xl mt-12">
-        Tidigare event
+        Tidigare 
       </h2>
       <p className="mb-4 text-center">Vill du veta mer om våra tidigare arrangemang? Läs mer nedan... </p>
       <EventList events={pastEvents} />

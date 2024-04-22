@@ -5,6 +5,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '@/sanity/client'
 import Link from 'next/link'
 import Image from 'next/image'
+import app from '@/components/about/card/app'
+import App from '@/components/about/card/app'
 
 
 const builder = imageUrlBuilder(client)
@@ -76,6 +78,7 @@ const Page = () => {
             width={1080}
             src="/assets/B05I6324.png"
             loading='lazy'
+            quality={100}
         />
     </div>
 </div>
@@ -171,27 +174,21 @@ const Page = () => {
             </div>
             <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Tack till</h1> 
-            <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också synas här? Vänligen <Link className='underline' href={`/news/}`}>kontakta</Link> oss för mer info.</p>
+            <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också synas här? Vänligen <Link className='underline' href={`/kontakt`}>kontakta</Link> oss för mer info.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48"> 
-            {sponsor && sponsor.map((sponsor: { _id: string, name: string, image: any, }) => ( 
+            {sponsor && sponsor.map((sponsor: { _id: string, name: string, }) => ( 
             <div key={sponsor._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden"> 
-            <Image 
-            height={320} 
-            alt={sponsor.name} 
-            width={1080} 
-            src={sponsor.image ? urlFor(sponsor.image).url() : 'https://yt3.googleusercontent.com/_iy1wEEEoVUc1be5OCm2nCZFBWIJIh_NuCeVzEefoNcatrOqHKDKkSvBfDRpjWm1_wBvSuyBOw=s900-c-k-c0x00ffffff-no-rj'} 
-            style={{ width: '100%', }} 
-            /> 
-            <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white"> 
+            <div className="bg-white dark:bg-black w-full p-4"> 
             <p className="text-black dark:text-white text-md font-medium"> {sponsor.name} </p> 
             </div> 
             </div> 
           ))} 
             </div>
-            <p className='text-center'>...och alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch! Stort tack till er också.</p> 
+            <p className='text-center'>...och till alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch. Stort tack till er också.</p> 
             </div>
-            <div className='flex flex-col items-center justify-center min-h-screen'>
+            <div className='flex flex-col items-center justify-center min-h-screen py-48'>
               <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Bli medlem och få AAA-brickan</h1>
+              <App/>
             </div>
             <div className='lg:py-48 sm:py-12 '>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Djupgående och mer specifik information</h1>
@@ -203,6 +200,8 @@ const Page = () => {
                           alt=""
                           width={1080}
                           src='/assets/B05I6324.png'
+                          quality={100}
+                          loading='lazy'
                           style={{
                             width: '100%',
                           }}
@@ -212,7 +211,49 @@ const Page = () => {
                             <b>Full transparens.</b>
                           </p>
                           <p>
-                            Vi omfattas inte av offentlighetsprincipen men vi tycker ändå att det ska gå att ha full insyn hos oss.
+                            Läs mer om hur vi hanterar våra medel.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+                        <Image 
+                          height={320}
+                          alt=""
+                          width={1080}
+                          src='/assets/B05I6324.png'
+                          quality={100}
+                          loading='lazy'
+                          style={{
+                            width: '100%',
+                          }}
+                        />
+                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
+                          <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
+                            <b>Din data</b>
+                          </p>
+                          <p>
+                            Läs om hur vi hanterar din data.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+                        <Image 
+                          height={320}
+                          alt=""
+                          width={1080}
+                          src='/assets/B05I6324.png'
+                          quality={100}
+                          loading='lazy'
+                          style={{
+                            width: '100%',
+                          }}
+                        />
+                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
+                          <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
+                            <b>Våra dokument</b>
+                          </p>
+                          <p>
+                            Ta del av våra styrelsedokument.
                           </p>
                         </div>
                       </div>

@@ -92,8 +92,8 @@ const eventTime = new Date(date).toLocaleTimeString();
               )}
               <dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base">
                 <div className="flex items-start">
-                  <dt className="sr-only">Date</dt>
-                  <dd className="font-semibold">Date</dd>
+                  <dt className="sr-only">Datum</dt>
+                  <dd className="font-semibold">Datum</dd>
                 </div>
                 <div className="grid gap-1">
                   {eventDate && <dt>{eventDate}</dt>}
@@ -103,8 +103,8 @@ const eventTime = new Date(date).toLocaleTimeString();
               {doorsOpenTime && (
                 <dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base">
                   <div className="flex items-start">
-                    <dt className="sr-only">Doors Open</dt>
-                    <dd className="font-semibold">Doors Open</dd>
+                    <dt className="sr-only">Dörrar öppnar</dt>
+                    <dd className="font-semibold">Dörrar öppnar</dd>
                   </div>
                   <div className="grid gap-1">
                     <dt>Doors Open</dt>
@@ -114,8 +114,8 @@ const eventTime = new Date(date).toLocaleTimeString();
               )}
               <dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base">
                 <div className="flex items-start">
-                  <dt className="sr-only">Venue</dt>
-                  <dd className="font-semibold">Venue</dd>
+                  <dt className="sr-only">Lokal</dt>
+                  <dd className="font-semibold">Lokal</dd>
                 </div>
                 <div className="grid gap-1">
                   <dt>{venue.name}</dt>
@@ -136,7 +136,7 @@ const eventTime = new Date(date).toLocaleTimeString();
                   className="inline-flex h-10 items-center justify-center border-4 border-black text-black w-1/2 text-sm font-medium shadow transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black dark:focus-visible:ring-gray-300"
                   href={tickets}
                 >
-                  Buy Tickets
+                  Köp biljetter
                 </a>
               </div>
             )}
