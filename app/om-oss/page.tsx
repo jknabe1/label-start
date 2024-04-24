@@ -78,7 +78,7 @@ const Page = () => {
                     </div>
                     <div className="text-container bg-white text-black dark:bg-black dark:text-white border-4 border-black dark:border-white">
                         <div className="text-container-alt">
-                            <h1 className='text-3xl mb-4'>Vi är inte ett "vanligt" skivbolag - inte ens ett bolag.</h1>
+                            <h1 className='text-3xl mb-4'>Vi är inte ett vanligt skivbolag - inte ens ett bolag.</h1>
                             <p className='text-ms'>K&K Records är Kulturföreningen 019s skivbolag. Vi har varit aktiva sedan 2019, och enda sedan dess har vi jobbat med ett och samma syfte - att främja ungdomar med deras kulturutveckling och samtidigt erbjuda barn och unga en meningfull fritid. </p>
                             <br/>
                             <p>
@@ -192,7 +192,8 @@ const Page = () => {
             </div>
             <div className='flex flex-col items-center justify-center min-h-screen py-48'>
               <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Bli medlem och få AAA-brickan</h1>
-              <div className='h-[500px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 col-start-2'>        
+              <div className='h-[500px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 col-start-2'>
+                <App/>        
               </div>
             </div>
             <div className='lg:py-48 sm:py-12'>
