@@ -5,8 +5,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '@/sanity/client'
 import Link from 'next/link'
 import Image from 'next/image'
-import app from '@/components/about/card/app'
 import App from '@/components/about/card/app'
+import '@/components/styles/about.css'
 
 
 const builder = imageUrlBuilder(client)
@@ -68,24 +68,29 @@ const Page = () => {
                 </div>
         </header>
         <main className='mx-8'>
-        <div className='lg:py-48 sm:py-12 '>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
-    <div className="border-4 border-black dark:border-white m-auto overflow-x-hidden col-span-full sm:col-span-2 md:col-span-3"> {/* Here's the change */}
-        <Image
-            className='object-cover'
-            height={1920}
-            alt="{team.name}"
-            width={1080}
-            src="/assets/B05I6324.png"
-            loading='lazy'
-            quality={100}
-        />
-    </div>
-</div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Vad är K&K Records</h1>
-            <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-48">
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+        <div className='lg:pb-48 sm:py-12'>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4 pb-24">Vad är K&K Records</h1>
+            <div className="offering module parallax-anchor">
+              <div className="container">
+                  <div className="offering-container">
+                  <div className="img-container border-4 border-black dark:border-white">
+                      <img decoding="async" src="https://cdn-p.smehost.net/sites/239008154bb641859bcbbc74541773c3/wp-content/uploads/2024/03/Screenshot-2024-03-06-at-12.24.43-PM.png" alt="bg-offering"/>
+                    </div>
+                    <div className="text-container bg-white text-black dark:bg-black dark:text-white border-4 border-black dark:border-white">
+                        <div className="text-container-alt">
+                            <h1 className='text-3xl mb-4'>Vi är inte ett "vanligt" skivbolag - inte ens ett bolag.</h1>
+                            <p className='text-ms'>K&K Records är Kulturföreningen 019s skivbolag. Vi har varit aktiva sedan 2019, och enda sedan dess har vi jobbat med ett och samma syfte - att främja ungdomar med deras kulturutveckling och samtidigt erbjuda barn och unga en meningfull fritid. </p>
+                            <br/>
+                            <p>
+                            
+                            </p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
+            <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
                           alt=""
@@ -97,14 +102,14 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            Det ska vara lätt
+                            Skivbolag
                           </p>
                           <p>
-                            Vi lättar på byråkratin och ser till att det är enkelt att vara medlem och att engagera sig.
+                            
                           </p>
                         </div>
-                      </div>
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+              </div>
+              <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
                           alt=""
@@ -116,14 +121,13 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            Det ska vara lätt
+                            Arrangörsgruppen
                           </p>
                           <p>
-                            Vi lättar på byråkratin och ser till att det är enkelt att vara medlem och att engagera sig.
                           </p>
                         </div>
-                      </div>
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+              </div>
+              <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
                           alt=""
@@ -135,21 +139,21 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            Det ska vara lätt
+                            Tidskriften
                           </p>
                           <p>
-                            Vi lättar på byråkratin och ser till att det är enkelt att vara medlem och att engagera sig.
+                            
                           </p>
                         </div>
-                      </div>
+              </div>
                 </div>
             </div>
             <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Styrelsen</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen</h1>
             <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
                   {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (
-                      <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+                      <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden mb-8">
                         <Image 
                           height={320}
                           alt={team.name}
@@ -174,7 +178,7 @@ const Page = () => {
             </div>
             <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Tack till</h1> 
-            <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också synas här? Vänligen <Link className='underline' href={`/kontakt`}>kontakta</Link> oss för mer info.</p>
+            <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också stötta oss? Sjävklart vill ni det - vänligen <Link className='underline' href={`/kontakt`}>kontakta</Link> oss för mer info.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48"> 
             {sponsor && sponsor.map((sponsor: { _id: string, name: string, }) => ( 
             <div key={sponsor._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden"> 
@@ -188,9 +192,10 @@ const Page = () => {
             </div>
             <div className='flex flex-col items-center justify-center min-h-screen py-48'>
               <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Bli medlem och få AAA-brickan</h1>
-              <App/>
+              <div className='h-[500px] w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 col-start-2'>        
+              </div>
             </div>
-            <div className='lg:py-48 sm:py-12 '>
+            <div className='lg:py-48 sm:py-12'>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Djupgående och mer specifik information</h1>
             <p className='text-center'>Nedan finns länkar om mer djupgående- och specifik information. Till exempel, hur vi hanterar data, osv.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
@@ -208,10 +213,10 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Full transparens.</b>
+                            <b>Faktura</b>
                           </p>
                           <p>
-                            Läs mer om hur vi hanterar våra medel.
+                            Fakturor skickas till <Link href="mailto:elliot.bergdahl@kf019.se">Elliot Bergdahl</Link>, alternativ till vårt kontor. Ange alltid referens.
                           </p>
                         </div>
                       </div>
@@ -229,10 +234,10 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Din data</b>
+                            <b>Besök oss</b>
                           </p>
                           <p>
-                            Läs om hur vi hanterar din data.
+                            Du är varmt välkommen att besöka oss på vårt kontor. Vi finns på Järnvägsgatan 8, 703 62 Örebro.
                           </p>
                         </div>
                       </div>
@@ -250,10 +255,14 @@ const Page = () => {
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
                           <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Våra dokument</b>
+                            <b>Rättslig information</b>
                           </p>
                           <p>
-                            Ta del av våra styrelsedokument.
+                            Organisationsnummer: <br/> 802541-7935
+                            <br/>
+                            Bankgiro: 137-0857
+                            <br/>
+                            Ordförande: Timothy Steckl
                           </p>
                         </div>
                       </div>

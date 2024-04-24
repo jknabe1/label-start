@@ -18,6 +18,11 @@ const config = {
       },
     },
     extend: {
+
+      gridTemplateColumns: {
+        'span-full': 'repeat(auto-fill, minmax(0, 1fr))',
+      },
+
       colors: {
         white: "#fefefe", 
         black: "#000",

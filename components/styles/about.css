@@ -1,0 +1,32 @@
+
+  .offering {
+    .container {
+      max-width: 1030px;
+      padding: 0 0 140px;
+    }
+    .offering-container {
+      position: relative;
+    }
+    .img-container {
+      width: 55%;
+    }
+    .text-container {
+      width: 70%;
+      right: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      .text-container-alt {
+        position: relative;
+        padding: 45px;
+        width: 100%;        
+      }
+    }
+
+    .container-alt {
+      padding: 0 0 70px;
+    }
+  }
+  

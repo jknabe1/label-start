@@ -44,35 +44,35 @@ const Page: React.FC = () => {
           
             {category === 'question' && (
             <div>
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="question">Din fråga</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="question">Din fråga</label>
                 <textarea className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white  shadow-sm focus:outline-none  sm:text-sm" name="question" required rows={3} placeholder="..."></textarea>
                 
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="epost">E-post</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="epost">E-post</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="email" name="bandName" required placeholder="Din e-post" />            
             </div>
             )}
 
             {category === 'demo' && (
             <div className=''>
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="bandName">Namn på band/artist</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="bandName">Namn på band/artist</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="text" name="bandName" required placeholder="..." />
                 
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="bandName">Stad</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="bandName">Stad</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="text" name="bandName" required placeholder="..." />
 
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="bandName">Genre</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="bandName">Genre</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="text" name="bandName" required placeholder="..." />
                 
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="bandName">E-post</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="bandName">E-post</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="text" name="bandName" required placeholder="..." />
 
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="demoLink">Lyssningslänk</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="demoLink">Lyssningslänk</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="url" name="demoLink" required placeholder="http://example.com" />
             
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="demoLink">EPK/Presskit</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="demoLink">EPK/Presskit</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="url" name="demoLink" required placeholder="http://example.com" />
             
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="demoLink">Mer info (t.ex text om bandet eller låten, etc)</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="demoLink">Mer info (t.ex text om bandet eller låten, etc)</label>
                 <textarea className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" name="info" required placeholder="..." />
             
 
@@ -81,14 +81,14 @@ const Page: React.FC = () => {
 
             {category === 'website' && (
             <div>
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="question">Feedback</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="question">Feedback</label>
                 <textarea className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" name="question" required rows={3} placeholder="T.ex: denna länk fungerar inte"></textarea>
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="epost">E-post - inte obligatoriskt men ifall vi behöver kontakta dig för mer info</label>
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="epost">E-post - inte obligatoriskt men ifall vi behöver kontakta dig för mer info</label>
                 <input className="mt-1 block w-full py-2 px-3 border-2 border-black dark:border-white shadow-sm focus:outline-none  sm:text-sm" type="email" name="email" placeholder="Din e-post" />
             </div>
             )}
             <div>
-                <label className="block text-sm font-medium text-white dark:text-white" htmlFor="terms">
+                <label className="block text-sm font-medium text-black dark:text-white" htmlFor="terms">
                     <input className="mr-2" type="checkbox" id="terms" name="terms" required />
                     Jag har läst och godkänner <Link href="/data" className="underline">villkoren</Link> om hur vi hanterar och lagrar din data.
                 </label>
