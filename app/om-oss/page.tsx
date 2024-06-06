@@ -68,7 +68,7 @@ const Page = () => {
                     </div>
                 </div>
         </header>
-        <main className='mx-8'>
+        <main className='mx-8 grid'>
         <div className='lg:pb-48 sm:py-12'>
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4 pb-24">Vad är K&K Records</h1>
             <div className="offering module parallax-anchor">
@@ -90,6 +90,33 @@ const Page = () => {
                     </div>
                   </div>
                 </div>
+                <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
+      <div className="flex">
+        <div className="flex-shrink-0 w-full">
+          <img
+            src="/placeholder.svg"
+            alt="Product Image 1"
+            width={600}
+            height={600}
+            className="aspect-square object-cover border border-gray-200 w-full overflow-hidden dark:border-gray-800"
+          />
+        </div>
+      </div>
+      <div className="grid gap-4">
+        <h1 className="font-bold text-3xl">Product Name</h1>
+        <p className="text-gray-500 dark:text-gray-400">
+          This is a detailed description of the product. It highlights its features, benefits, and any other relevant
+          information that a potential customer might find useful.
+        </p>
+        <h2 className="font-bold text-2xl">$99.99</h2>
+        <div className="flex flex-col gap-2 min-[400px]:flex-row">
+   
+        </div>
+      </div>
+    </div>
+                <div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen</h1>
+                <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
             <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
@@ -146,11 +173,13 @@ const Page = () => {
                             
                           </p>
                         </div>
-              </div>
                 </div>
+                </div>
+              </div>
             </div>
+
             <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen för KF-019</h1>
             <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
                   {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (
