@@ -25,6 +25,23 @@
       }
     }
 
+    @media (max-width: 991px) {
+      .img-container {
+        width: 100%;
+      }
+      .text-container {
+        width: 100%;
+        position: relative;
+        top: 0;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+        .text-container-alt {
+          padding: 0;
+        }
+      }
+    }
+
     .container-alt {
       padding: 0 0 70px;
     }

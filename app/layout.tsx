@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -21,8 +21,43 @@ const ibm = IBM_Plex_Mono ({
 export const metadata: Metadata = {
   title: "K&K RECORDS",
   description: "",
-};
+  metadataBase: new URL('https://kkrecords.se', 'http://localhost:3000'),
+  openGraph: {
+    title: 'K&K RECORDS',
+    description: '',
+    url: 'https://nextjs.org',
+    siteName: 'K&K RECORDS',
+    images: [
+      {
+        url: 'https://kkrecords.se/og.png', 
+        width: 800,
+        height: 600,
+      },
+      {
+        url: 'https://kkrecords.se/og-alt.png', 
+        width: 1800,
+        height: 1600,
+        alt: 'K&K RECORDS OG IMAGE',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 
+  robots: {
+    follow: true,
+    index: true
+  },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'K&K RECORDS',
+      description: '',
+      siteId: '',
+      creator: '@kkrec',
+      creatorId: '',
+      images: ['https://kkrecords.se/og.png'], 
+    },
+}
 
 
 
@@ -33,31 +68,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>
-              
-        <Loglib
-                config={{
-                    id: "kkrecords",
-                }}
-            />
-        <div className="min-h-screen border-x-4 border-black dark:border-white border-solid">    
-        <ThemeProvider
-            attribute="class" 
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <Suspense fallback={<Loading/>}>
-        <CookieNotice />
-        <Header/>
-        <Screensaver/>
-        {children}
-        <Footer/>
-        <Analytics />
-        <SpeedInsights/>
-        </Suspense>
-        </ThemeProvider>
-        </div>
+        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>      
+          <Loglib
+                  config={{
+                      id: "kkrecords",
+                  }}
+              />
+            <div className="min-h-screen border-x-4 border-black dark:border-white border-solid">    
+              <ThemeProvider
+                attribute="class" 
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <Suspense fallback={<Loading/>}>
+                    <CookieNotice />
+                      <Header/>
+                        <Screensaver/>
+                          {children}
+                      <Footer/>
+                    <Analytics />
+                  <SpeedInsights/>
+                </Suspense>
+              </ThemeProvider>
+            </div>
         </body>
     </html>
   );

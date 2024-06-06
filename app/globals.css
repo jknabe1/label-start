@@ -81,8 +81,14 @@
 
 @font-face {
   font-family:"eurostile";
-  src:url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/l?subset_id=2&fvd=n9&v=3") format("woff2"),url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/d?subset_id=2&fvd=n9&v=3") format("woff"),url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/a?subset_id=2&fvd=n9&v=3") format("opentype");
-  font-display:auto;font-style:normal;font-weight:900;font-stretch:normal;
+  src:url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/l?subset_id=2&fvd=n9&v=3") 
+  format("woff2"),url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/d?subset_id=2&fvd=n9&v=3") 
+  format("woff"),url("https://use.typekit.net/af/a0ab27/00000000000000007735a6dd/30/a?subset_id=2&fvd=n9&v=3") 
+  format("opentype");
+  font-display:auto;
+  font-style:normal;
+  font-weight:900;
+  font-stretch:normal;
   }
 
 
@@ -96,7 +102,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   text-transform: uppercase;
 }
-
 
 a:hover{
   text-decoration: underline;

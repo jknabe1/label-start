@@ -120,7 +120,7 @@ const Menu: React.FC = () => {
                 {menuLinks.map((link, index) => (
                   <div key={index} className="menu-link-item">
                     <div className="menu-link-item-holder" onClick={toggleMenu}>
-                      <Link className="menu-link " href={link.path}>
+                      <Link className="menu-link" href={link.path}>
                         {link.label}
                       </Link>
                     </div>
