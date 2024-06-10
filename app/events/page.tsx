@@ -53,7 +53,7 @@ const EventList = ({ events }: { events: SanityDocument[] }) => (
   <ul className="w-full grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8">
     {events.map((event) => (
       <li
-        className="event-card bg-white p-6 border-4 border-black dark:bg-black dark:border-white shadow-md"
+        className="event-card bg-white p-6 border-4 border-black dark:bg-black dark:border-white shadow-md max-w-full"
         key={event._id}
       >
         <Link className="block hover:underline" href={`/events/${event.slug.current}`}>
