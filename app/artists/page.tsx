@@ -17,7 +17,7 @@ const Page = () => {
 
   useEffect(() => {
     const fetchArtists = async () => {
-      const data = await client.fetch('*[_type == "artist"]')
+      const data = await client.fetch('*[_type == "artist  && defined(slug.current)]{name, image}"]')
       setArtists(data)
     }
 
