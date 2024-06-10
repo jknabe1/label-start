@@ -12,6 +12,7 @@ import Footer from "./footer";
 const menuLinks = [
   { path: "/", label: "Start" },
   { path: "/artists", label: "Artister" },
+  {path: "/stod", label: "Stöd & bidrag"},
   { path: "/events", label: "Events" },
   { path: "/nyheter", label: "Nyheter" },
   { path: "/shop", label: "Shop" },
@@ -92,7 +93,7 @@ const Menu: React.FC = () => {
       </div>
 
       <div className="menu-overlay bg-white dark:bg-black border-4 border-black dark:border-white text-black dark:text-white">
-            <div className="menu-overlay-bar border-b-4 border-black dark:border-white">
+            <div className="menu-overlay-bar border-b-4 border-black dark:border-white box-border">
               <div className="menu-logo">
                 <Link href="/">
                 <h1 className="text-3xl">
@@ -110,16 +111,16 @@ const Menu: React.FC = () => {
               </div>
             </div>
             <div className="menu-copy">
-            <div className="menu-links text-6xl md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center">
-                {menuLinks.map((link, index) => (
-                  <div key={index} className="menu-link-item">
-                    <div className="menu-link-item-holder" onClick={toggleMenu}>
-                      <Link className="menu-link" href={link.path}>
-                        {link.label}
-                      </Link>
-                    </div>
+            <div className="menu-links text-3xl pt-8 md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center flex flex-col justify-center items-center h-screen">
+              {menuLinks.map((link, index) => (
+                <div key={index} className="menu-link-item mb-4">
+                  <div className="menu-link-item-holder" onClick={toggleMenu}>
+                    <Link className="menu-link" href={link.path}>
+                      {link.label}
+                    </Link>
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
               <div className="menu-info">
                 <Footer />
