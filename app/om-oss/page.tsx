@@ -5,9 +5,8 @@ import imageUrlBuilder from '@sanity/image-url'
 import { client } from '@/sanity/client'
 import Link from 'next/link'
 import Image from 'next/image'
-import App from '@/components/about/card/app'
 import '@/components/styles/about.css'
-
+import CarouselPlugin from '@/components/about/aboutCarousel'
 
 
 const builder = imageUrlBuilder(client)
@@ -68,7 +67,7 @@ const Page = () => {
                     </div>
                 </div>
         </header>
-        <main className='mx-8 grid'>
+        <main className='mx-8 grid flex flex-col items-center'>
         <div className='lg:pb-48 sm:py-12'>
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4 pb-24">Vad är K&K Records</h1>
             <div className="offering module parallax-anchor">
@@ -90,34 +89,15 @@ const Page = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-6">
-      <div className="flex">
-        <div className="flex-shrink-0 w-full">
-          <img
-            src="/placeholder.svg"
-            alt="Product Image 1"
-            width={600}
-            height={600}
-            className="aspect-square object-cover border border-gray-200 w-full overflow-hidden dark:border-gray-800"
-          />
-        </div>
-      </div>
-      <div className="grid gap-4">
-        <h1 className="font-bold text-3xl">Product Name</h1>
-        <p className="text-gray-500 dark:text-gray-400">
-          This is a detailed description of the product. It highlights its features, benefits, and any other relevant
-          information that a potential customer might find useful.
-        </p>
-        <h2 className="font-bold text-2xl">$99.99</h2>
-        <div className="flex flex-col gap-2 min-[400px]:flex-row">
-   
-        </div>
-      </div>
-    </div>
-                <div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen</h1>
-                <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
+                <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24'>
+                    <div className="">
+                      <CarouselPlugin/>
+                    </div>
+                </div>
+
+              <div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl text-center">Kulturförening 019</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24">
             <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
@@ -157,12 +137,13 @@ const Page = () => {
               </div>
               <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
-                          height={320}
+                          height={120}
                           alt=""
                           width={1080}
-                          src='https://yt3.googleusercontent.com/_iy1wEEEoVUc1be5OCm2nCZFBWIJIh_NuCeVzEefoNcatrOqHKDKkSvBfDRpjWm1_wBvSuyBOw=s900-c-k-c0x00ffffff-no-rj'
+                          src='/assets/penguin.jpg'
                           style={{
                             width: '100%',
+                            height: '100%',
                           }}
                         />
                         <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
@@ -176,12 +157,11 @@ const Page = () => {
                 </div>
                 </div>
               </div>
-            </div>
-
-            <div>
+        </div>
+        <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen för KF-019</h1>
             <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24">
                   {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (
                       <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden mb-8">
                         <Image 
@@ -208,8 +188,8 @@ const Page = () => {
                       </div>
                   ))}
                 </div>
-            </div>
-            <div>
+        </div>
+        <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Tack till</h1> 
             <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också stötta oss? Sjävklart vill ni det - vänligen <Link className='underline' href={`/kontakt`}>kontakta</Link> oss för mer info.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-16"> 
@@ -222,16 +202,8 @@ const Page = () => {
           ))} 
             </div>
             <p className='text-center'>...och till alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch. Stort tack till er också.</p> 
-            </div>
-            <div className='flex flex-col items-center justify-center min-h-screen py-48'>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Bli medlem och få AAA-brickan</h1>
-              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-48'>
-              <div className='w-full h-[500px]'>
-                <App/>
-              </div>        
-              </div>
-            </div>
-            <div className='lg:pb-24 sm:py-12'>
+        </div>
+        <div className='lg:py-24 sm:py-12'>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Djupgående och mer specifik information</h1>
             <p className='text-center'>Nedan finns länkar om mer djupgående- och specifik information. Till exempel, hur vi hanterar data, osv.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-48 pb-6">
@@ -303,8 +275,8 @@ const Page = () => {
                         </div>
                       </div>
                 </div>
-            </div>
-            </main>
+        </div>
+        </main>
     </div>
   )
 }
