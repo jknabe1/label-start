@@ -76,7 +76,7 @@ const Menu: React.FC = () => {
   <div className="menu-container relative z-50 " ref={container}> 
     <div className="menu-bar border-4 border-black bg-white dark:border-white dark:bg-black box-border overflow-y-auto">        
         <div className="menu-logo">
-          <Link href="/" aria-label="Go to homepage"  title="Homepage">
+          <Link href="/" aria-label="Gå till startsidan"  title="Start">
           <h1 className="text-3xl">
             K&K RECORDS
           </h1>
@@ -111,7 +111,7 @@ const Menu: React.FC = () => {
               </div>
             </div>
             <div className="menu-copy">
-            <div className="menu-links text-3xl pt-8 md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center flex flex-col justify-center items-center h-screen">
+            <div className="menu-links text-3xl md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center flex flex-col justify-center items-center h-screen">
               {menuLinks.map((link, index) => (
                 <div key={index} className="menu-link-item mb-4">
                   <div className="menu-link-item-holder" onClick={toggleMenu}>

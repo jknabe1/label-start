@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'K&K RECORDS',
     description: '',
-    url: 'https://nextjs.org',
+    url: 'https://kkrecords.se',
     siteName: 'K&K RECORDS',
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         alt: 'K&K RECORDS OG IMAGE',
       },
     ],
-    locale: 'en_US',
+    locale: 'se_SV',
     type: 'website',
   },
 
@@ -74,7 +74,7 @@ export default function RootLayout({
                       id: "kkrecords",
                   }}
               />
-            <div className="min-h-screen border-x-4 border-black dark:border-white border-solid">    
+            <div className="min-h-screen border-x-4 border-black dark:border-white border-solid  mr-auto ml-auto">    
               <ThemeProvider
                 attribute="class" 
                 defaultTheme="system"

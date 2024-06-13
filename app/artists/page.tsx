@@ -50,7 +50,7 @@ const Page = () => {
                 </div>
         </header>
     <div className="flex justify-center items-center h-screen py-24">
-  <section className="grid sm:grid-cols-4 sm:grid-rows-2 w-full h-full p-7 gap-5 grid-cols-1 auto-rows-auto ">
+  <section className="grid sm:grid-cols-4 sm:grid-rows-2 w-full h-full p-4 gap-5 grid-cols-1 auto-rows-auto ">
     <img className="object-cover h-full w-full  border-4 border-black" alt='' src="https://images.unsplash.com/photo-1686918101049-d7fc95087424?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1370&q=80"/>
     <img className="object-cover h-full w-full sm:col-span-2" alt='' src="https://images.unsplash.com/photo-1648614593495-e0955bf287e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"/>
     <img className="object-cover h-full w-full sm:row-span-2" alt='' src="https://images.unsplash.com/photo-1687273195751-14befe467d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1406&q=80"/>
