@@ -47,16 +47,22 @@ const CookieNotice: React.FC = () => {
   
 
   return (
-    <div className="fixed bottom-0 right-0   z-50">
-      <div className="bg-white border-x-4 border-y-4 border-black p-6 shadow-md dark:bg-black dark:text-white dark:border-white">
-        <h2 className="text-lg font-bold mb-4">Din data...</h2>
-        <p className="mb-4"> Vi använder kakor för att optimera våra sidor. <br/> Självklart frågar vi om samtycke innan...  Är det lugnt? <br/>Du kan läsa mer här: <a className="underline" href='/data'>Om din data</a></p>
-        <div>
-          <button onClick={acceptCookies} className="mr-2 px-4 py-2 bg-white border-4 border-black text-black hover:bg-black hover:text-white">(J)a</button>
-          <button onClick={declineCookies} className="px-4 py-2 bg-white border-4 border-black text-black hover:bg-black hover:text-white">(N)ope</button>
+    <div>
+    <div className="z-50 fixed w-[32rem] md:w-[32rem] bg-white flex items-center font-mono z-cookie bottom-0 left-0 dark:bg-black" style={{ opacity: 1, transform: "translate(0px, 0px)" }}>
+        <div className="absolute w-[32rem] md:w-full bottom-full bg-white font-sans text-center text-14 overflow-hidden -z-10 dark:bg-black" style={{height: "auto"}}>
+            <div className="border border-black border-b-0 p-[1rem] text-left leading-[17px] dark:border-white">Vi använder kakor för att göra denna sida bättre.</div>
         </div>
-      </div>
+        <div className="border border-black w-full flex h-[2.5rem] dark:border-white">
+            <button className="flex flex-1 px-3 items-center">
+                <span className="flex items-center font-mono uppercase leading-[1.125] text-[1.2rem] tracking-[0.04em]">
+                    <div className="w-[0.8em] h-[0.8em] bg-orange mt-[-0.1em] pointer-events-none transition-colors mr-[8px]"></div>Vi använder bara nödvändiga kakor</span>
+            </button>
+            <button className="expand-hitbox bg-orange text-black px-[1rem] hover:bg-black hover:text-white border-l border-black dark:border-white">
+                <span onClick={acceptCookies} className="font-mono uppercase leading-[1.125] text-[1.2rem] tracking-[0.04em]">Okej</span>
+            </button>
+        </div>
     </div>
+</div>
   );
 };
 

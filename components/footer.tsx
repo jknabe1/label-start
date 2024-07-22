@@ -17,8 +17,8 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="border-y divide-x  divide-black flex bg-white border-y-2 border-black">
-      <a href="/" className="p-[10px] w-1/2 flex bg-white">
+    <div className="divide-x  divide-black flex bg-white border-y-2 border-black dark:bg-black dark:border-white dark:divide-white uppercase">
+      <a href="/" className="p-[10px] w-1/2 flex bg-white dark:bg-black">
       <div className="my-auto divide-y divide">
         <span className='bold uppercase'>K&K RECORDS</span>
       </div>
@@ -33,12 +33,12 @@ const Footer = () => {
             </div>
           </button>
           </div>
-              <button className="md:w-1/6 w-1/5 bg-white hover:bg-black hover:text-white ">
-              <p className=" ">Meny</p>
+              <button className="md:w-1/6 w-1/5 bg-white hover:bg-black hover:text-white dark:bg-black dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black  ">
+              <p className="uppercase ">Meny</p>
               </button>
-              <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white ">
+              <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black ">
               <a href="https://www.tickster.com/se/sv/events/by/r5f11v6v5y148pl/kf-stationen" id="cart" className=" ">
-                <span>Köp biljett</span>
+                <span className='uppercase'>Boka artist</span>
               </a>
               </button>
             </div>

@@ -75,7 +75,7 @@ export default function RootLayout({
                       id: "kkrecords",
                   }}
               />
-            <div className="min-h-screen border-x-4 border-black dark:border-white border-solid  mr-auto ml-auto">    
+            <div className="min-h-screen border-x-2 border-black dark:border-white border-solid  mr-auto ml-auto">    
               <ThemeProvider
                 attribute="class" 
                 defaultTheme="system"
