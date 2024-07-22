@@ -17,16 +17,31 @@ const Footer = () => {
   }, []);
 
   return (
-    <div>
-    <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-4 border-black shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-black dark:border-white">
-      <div className="flex justify-between items-center w-full">
-      <span className='flex items-center'>Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm', timeStyle: 'short' })}</span>
-      <span className='flex items-center'>
-        <AccessibilityMenu />
-        </span>
+    <div className="border-y divide-x  divide-black flex bg-white border-y-2 border-black">
+      <a href="/" className="p-[10px] w-1/2 flex bg-white">
+      <div className="my-auto divide-y divide">
+        <span className='bold uppercase'>K&K RECORDS</span>
       </div>
-    </footer>
-  </div>
+      </a>
+      <div className="w-1/6 md:flex">
+      <span className='flex p-[10px]'>Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm', timeStyle: 'short' })}</span>
+        </div>
+        <div className="md:hidden w-[10%] ">
+          <button className="w-full bg-white h-full ">
+            <div className="p-[10px] w-full h-full flex items-center justify-center gap-[5px] ">
+              <span className="uppercase ">en</span> <span className="">v</span>
+            </div>
+          </button>
+          </div>
+              <button className="md:w-1/6 w-1/5 bg-white hover:bg-black hover:text-white ">
+              <p className=" ">Meny</p>
+              </button>
+              <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white ">
+              <a href="https://www.tickster.com/se/sv/events/by/r5f11v6v5y148pl/kf-stationen" id="cart" className=" ">
+                <span>Köp biljett</span>
+              </a>
+              </button>
+            </div>
   )
 }
 
