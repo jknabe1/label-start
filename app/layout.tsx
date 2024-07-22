@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
-import Header from "@/components/header";
 import CookieNotice from "@/components/cookieNotice";
 import Loading from "@/components/preLoader";
 import { Suspense } from "react";
@@ -11,6 +10,8 @@ import Screensaver from "@/components/screensaver";
 import Loglib from "@loglib/tracker/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import NewsLetterComp from "@/components/NewsLetter/NewsLetterComp";
+
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -83,9 +84,9 @@ export default function RootLayout({
               >
                 <Suspense fallback={<Loading/>}>
                     <CookieNotice />
-                      <Header/>
                         <Screensaver/>
                           {children}
+                        <NewsLetterComp />
                       <Footer/>
                     <Analytics />
                   <SpeedInsights/>

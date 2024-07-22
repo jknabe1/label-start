@@ -29,7 +29,6 @@ export default function CarouselPlugin() {
   )
 
   const [artists, setArtists] = React.useState<SanityDocument[]>([]);
-  const [index, setIndex] = React.useState(0);
 
   React.useEffect(() => {
     const fetchArtists = async () => {
@@ -67,7 +66,7 @@ export default function CarouselPlugin() {
               className="absolute" 
               /> 
 
-              <h1 className="lg:text-8xl text-4xl uppercase" style={{ 
+              <h1 className="lg:text-8xl md:text-4xl uppercase" style={{ 
                 position: 'absolute', 
                 top: '50%', 
                 left: '50%', 
