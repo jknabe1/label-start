@@ -8,7 +8,7 @@ const NewsMarquee = () => {
         <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-hidden gap-[10px] flex-col large ">
           <span></span> 
           <Marquee direction='right'>
-          <p> Det senaste   </p>
+          <p className='text-8xl dark:text-black'> DET SENASTE / DET SENASTE / DET SENASTE /  </p>
           </Marquee>
         </div>
       </div>

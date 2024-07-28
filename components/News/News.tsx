@@ -1,8 +1,8 @@
 import React from 'react'
+import Link from 'next/link'
 
 const News = () => {
   return (
-    <div>
     <div>
       <div className="grid md:grid-cols-3 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white">
         <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
@@ -91,9 +91,23 @@ const News = () => {
                                               </div>
                                               </div>
                                               </div>
+                                              
+      </div>
+      <div className="grid md:grid-cols-1 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white">
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white"></div>
+              <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+                <div className="text-small ">
+                  <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small "><span></span>
+                    <Link href='/nyheter' className='text-center'>LÄS MER NYHETER</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>                                    
       </div>
     </div>
-  </div>
   )
 }
 

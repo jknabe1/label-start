@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import IgCarousel from "./IgCarousel";
+
 interface InstagramPost {
   id: string;
   caption: string;
@@ -13,7 +15,7 @@ export default async function IgFeed() {
   let error = null;
 
   try {
-    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.META_TOKEN}&limit=6`;
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.META_TOKEN}&limit=3`;
     const data = await fetch(url);
     console.log("data", data);
     if (!data.ok) {
@@ -34,18 +36,18 @@ export default async function IgFeed() {
     <>
   {error && <p className="text-red-500">{error}</p>}
   {instagramFeed && (
-    <div className="grid md:grid-cols-3 divide-y divide-x divide-black">
+    <div className="grid md:grid-cols-3 divide-y divide-x divide-black dark:divide-white">
       {instagramFeed.data.map((post: InstagramPost) => (
-        <div key={post.id} className="divide-y divide-black flex flex-col">
+        <div key={post.id} className="divide-y divide-black dark:divide-white flex flex-col">
           <img
             src={post.media_url}
             style={{ objectPosition: "center" }}
             alt="Instagram Post"
             className="duration-300 w-full object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100"
           />
-          <div className="divide-black flex flex-col divide-y min-h-0">
-            <div className="divide-black divide-y">
-              <div className="grid grid-cols-2 divide-x w-full divide-black">
+          <div className="divide-black dark:divide-white flex flex-col divide-y min-h-0">
+            <div className="divide-black dark:divide-white divide-y">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
                 <div className="child:uppercase">
                   <div className="text-small">
                     <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small">
@@ -66,7 +68,7 @@ export default async function IgFeed() {
                 </div>
               </div>
             </div>
-            <div className="flex min-h-0 flex-row divide-x divide-black">
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
               <div className="text-small">
                 <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small">
                   <span></span>

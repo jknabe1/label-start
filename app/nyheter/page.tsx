@@ -70,7 +70,7 @@ export const Page = () => {
             <div>Ha tålamod...</div> 
             ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {news && news.filter((newsItem: { featured: boolean }) => newsItem.featured).map((news: { _id: string, name: string, excerpt: string, image: any, current: string, featured: boolean,  }, index: number) => (                
+            {news && news.filter((newsItem: { featured: boolean }) => newsItem.featured).map((news: { _id: string, name: string, excerpt: string, image: any, current: string, featured: boolean,  slug: string }, index: number) => (                
             <div key={news._id}>
                   <Image
                     alt={news.name}
@@ -90,7 +90,7 @@ export const Page = () => {
                     <p className="text-zinc-500 dark:text-zinc-400">
                       {news.excerpt || 'Misslyckad hämtning av utdrag'}
                     </p>
-                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/${news.current}`}>
+                    <Link className="text-blue-500 hover:text-blue-700 mt-4" href={`/news/${news.slug}`}>
                       Read More
                     </Link>
                   </div>

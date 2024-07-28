@@ -1,7 +1,9 @@
 import CarouselPlugin from "@/components/landing/indexCarousel"; 
 import NewsComp from "@/components/News/NewsComp";
 import Marquee from "react-fast-marquee";
-import IgFeed from "@/components/igFeed";
+import IgFeed from "@/components/socials/igFeed";
+import IgCarousel from "@/components/socials/IgCarousel";
+import ArtistComp from "@/components/artists/artistComp";
 
 export default function Home() {
   return (
@@ -17,7 +19,9 @@ export default function Home() {
         </div>
       </div>
       <CarouselPlugin />
+      <ArtistComp/>
       <NewsComp />
+     <IgCarousel />
       <IgFeed />
     </main>
   );
