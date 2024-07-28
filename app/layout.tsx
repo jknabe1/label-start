@@ -20,45 +20,53 @@ const ibm = IBM_Plex_Mono ({
 });
 
 export const metadata: Metadata = {
-  title: "K&K RECORDS",
+  title: {
+    template: '%s | K&K Records',
+    default: 'K&K Records', 
+  },
   description: "",
-  metadataBase: new URL('https://kkrecords.se', 'http://localhost:3000'),
+
+  metadataBase: new URL('https://kkrecords.se'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'K&K RECORDS',
-    description: '',
+    title: 'K&K Media Group',
+    description: "",
     url: 'https://kkrecords.se',
-    siteName: 'K&K RECORDS',
+    siteName: 'K&K Media Group',
     images: [
       {
-        url: 'https://kkrecords.se/og.png', 
+        url: 'https://kkrecords.se/api', // Must be an absolute URL
         width: 800,
         height: 600,
       },
-      {
-        url: 'https://kkrecords.se/og-alt.png', 
-        width: 1800,
-        height: 1600,
-        alt: 'K&K RECORDS OG IMAGE',
-      },
     ],
-    locale: 'se_SV',
+    locale: 'sv_SE',
     type: 'website',
   },
-
   robots: {
+    index: false,
     follow: true,
-    index: true
+    nocache: true,
   },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'K&K RECORDS',
-      description: '',
-      siteId: '',
-      creator: '@kkrec',
-      creatorId: '',
-      images: ['https://kkrecords.se/og.png'], 
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/shortcut-icon.png',
+    apple: '/apple-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
     },
-}
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'wwww.kkrecords.se',
+    description: "",
+    images: ['https://kkrecords.se/api'], // Must be an absolute URL
+  },
+};
+
 
 
 
