@@ -13,7 +13,7 @@ export default async function IgFeed() {
   let error = null;
 
   try {
-    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=IGQWRQd1VEZA0VManZAQcm84TkwwOE5WTnloZA0N4MnV6bWlfSk9VWGJOVDI0RGZAtWExfSXlDcGRWMFQzVlVUTnlVSHF5OGtjSW9fU1JteV9hems3WHA5bmFLZAU1TX0p3cXFZAS1hJY1RPeDdwb3JtLXJLTHM4THBuUTQZD&limit=6`;
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,permalink&access_token=${process.env.META_TOKEN}&limit=6`;
     const data = await fetch(url);
     console.log("data", data);
     if (!data.ok) {
