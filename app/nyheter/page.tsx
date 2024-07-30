@@ -135,9 +135,9 @@ export const Page = () => {
               ))}
             </div>
           )}
-          <button className="px-4 py-2 mt-8 bg-white border-2 border-black text-black hover:bg-black hover:text-white" onClick={loadMore}>
+          <div className="w-28 px-4 py-2 mt-8 bg-white border-2 border-black text-black hover:bg-black hover:text-white" onClick={loadMore}>
             {visible < filteredNews.length ? 'Hämta fler' : 'Slut :('} 
-          </button>        
+          </div>        
         </section>        
       </main>
     </section>

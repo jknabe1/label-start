@@ -20,7 +20,7 @@ const Footer = () => {
     <div className="divide-x  divide-black flex bg-white border-y-2 border-black dark:bg-black dark:border-white dark:divide-white uppercase">
       <a href="/" className="p-[10px] w-1/2 flex bg-white dark:bg-black">
       <div className="my-auto divide-y divide">
-        <span className='bold uppercase'>K&K RECORDS</span>
+        <h1 className='bold uppercase'>K&K RECORDS</h1>
       </div>
       </a>
       <div className="w-1/6 md:flex">
@@ -37,9 +37,9 @@ const Footer = () => {
               <p className="uppercase ">Meny</p>
               </button>
               <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black ">
-              <a href="https://www.tickster.com/se/sv/events/by/r5f11v6v5y148pl/kf-stationen" id="cart" className=" ">
-                <span className='uppercase'>Boka artist</span>
-              </a>
+              <p>
+                <span className='uppercase'>Livesändning</span>
+              </p>
               </button>
             </div>
   )

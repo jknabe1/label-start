@@ -10,7 +10,7 @@ const ArtistMarquee = () => {
           <div className="p-[10px] accordion-body gap-[10px] flex-col large ">
             <span></span> 
             <Marquee>
-            <p className="text-8xl dark:text-black">  /  K&K RECORDS  / K&K RECORDS  </p>
+            <h1 className="text-8xl dark:text-black">  /  K&K RECORDS  / K&K RECORDS  </h1>
             </Marquee>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import '../globals.css'
 
  
 export async function GET() {
@@ -6,18 +7,19 @@ export async function GET() {
     (
       <div
         style={{
-          fontSize: 40,
+          fontSize: 140,
+          fontFamily: 'eurostile',
           color: 'black',
           background: '#FC4337',
           width: '100%',
           height: '100%',
-          padding: '50px 200px',
+          padding: '',
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-         K&K Records 
+         K&K RECORDS 
       </div>
     ),
     {

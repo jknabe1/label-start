@@ -70,13 +70,14 @@ const Page = () => {
         <main className='mx-8 grid flex flex-col items-center'>
         <div className='lg:pb-48 sm:py-12'>
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4 pb-24">Vad är K&K Records</h1>
+
             <div className="offering module parallax-anchor">
               <div className="container">
                   <div className="offering-container">
-                  <div className="img-container border-4 border-black dark:border-white">
-                      <img decoding="async" src="https://cdn-p.smehost.net/sites/239008154bb641859bcbbc74541773c3/wp-content/uploads/2024/03/Screenshot-2024-03-06-at-12.24.43-PM.png" alt="bg-offering"/>
+                  <div className="img-container border-2 border-black dark:border-white">
+                      <img decoding="async" src="/assets/vinyl-1.png" alt="bg-offering"/>
                     </div>
-                    <div className="text-container bg-white text-black dark:bg-black dark:text-white border-4 sm:border-y-4 sm:border-b-4 border-black dark:border-white">
+                    <div className="text-container bg-white text-black dark:bg-black dark:text-white border-2 sm:border-y-4 sm:border-b-4 border-black dark:border-white">
                         <div className="text-container-alt">
                             <h1 className='text-3xl mb-4'>Vi är inte ett vanligt skivbolag - inte ens ett bolag.</h1>
                             <p className='text-ms'>K&K Records är Kulturföreningen 019s skivbolag. Vi har varit aktiva sedan 2019, och enda sedan dess har vi jobbat med ett och samma syfte - att främja ungdomar med deras kulturutveckling och samtidigt erbjuda barn och unga en meningfull fritid. </p>
@@ -89,16 +90,15 @@ const Page = () => {
                     </div>
                   </div>
                 </div>
-                <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24'>
-                    <div className="">
-                      <CarouselPlugin/>
-                    </div>
-                </div>
+
+    <div className="grid md:grid-cols-1 divide-y divide-x divide-black dark:divide-white">
+          <CarouselPlugin/>
+    </div>
 
               <div>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl text-center">Kulturförening 019</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24">
-            <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+            <div className="border-2 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden ">
                         <Image 
                           height={320}
                           alt=""
@@ -117,7 +117,7 @@ const Page = () => {
                           </p>
                         </div>
               </div>
-              <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+              <div className="border-2 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={320}
                           alt=""
@@ -135,12 +135,12 @@ const Page = () => {
                           </p>
                         </div>
               </div>
-              <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
+              <div className="border-2 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
                         <Image 
                           height={120}
                           alt=""
                           width={1080}
-                          src='/assets/penguin.jpg'
+                          src='/assets/kkrec-back.png'
                           style={{
                             width: '100%',
                             height: '100%',
@@ -161,121 +161,65 @@ const Page = () => {
         <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:pb-8">Styrelsen för KF-019</h1>
             <p className='text-center'>Det är vi som står bakom arbetet och vi som ansvarar för att vårt syfte ska följas.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-24">
-                  {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (
-                      <div key={team._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden mb-8">
-                        <Image 
-                          height={320}
-                          alt={team.name}
-                          width={1080}
-                          src={team.image ? urlFor(team.image).url() : '/assets/missing.png'} 
-                          className="hover:filter-none"
-                          style={{
-                            width: '100%',
-                            filter: 'grayscale(100%) contrast(1.2)',
-                            transition: 'filter 0.3s ease',
-                          }}
-                        />
-                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
-                          <p className="text-black dark:text-white text-md font-medium">
-                            {team.name}
-                          </p>
-                          <p className="flex items-center space-x-2">
-                            <span>{typeof team.email === 'string' && team.email.length > 0 ? team.email : 'E-post: ¯\\_(ツ)_/¯'}</span>
-                          </p>
-                          <p>Roll: {team.roll}</p>
-                        </div>
-                      </div>
-                  ))}
+            <div className="grid md:grid-cols-3 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white border-x-2 border-b-2 border-t-2 border-black dark:border-white ">
+            {teams && teams.map((team: { _id: string, name: string, image: any, email: string, roll: string }) => (        
+              <div key={team._id} className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <img
+            src={team.image ? urlFor(team.image).url() : '/assets/missing.png'}            
+            style={{ objectPosition: "center" }}
+            alt="Instagram Post"
+            className="divide-black dark:divide-white duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100"
+          />
+          <div className="divide-black dark:divide-white flex flex-col divide-y min-h-0">
+            <div className="divide-black dark:divide-white divide-y">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small">
+                      <span></span>
+                      <p
+                        className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]"
+                      >
+                        {team.name}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+                <div className="text-small p-[10px]">
+                  <span className="text-[#7f7f7f]">
+                    <a className='hover:!text-[#f05136]' href={`mailto:${team.email}`}>{team.email}</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small">
+                  <span></span>
+                  <p>{team.roll}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
         </div>
         <div>
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Tack till</h1> 
             <p className='text-center'>...dessa organisationer och personer som stöttar vårt arbete. Vill ni också stötta oss? Sjävklart vill ni det - vänligen <Link className='underline' href={`/kontakt`}>kontakta</Link> oss för mer info.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-16"> 
             {sponsor && sponsor.map((sponsor: { _id: string, name: string, }) => ( 
-            <div key={sponsor._id} className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden"> 
+            <div key={sponsor._id} className="border-2 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden"> 
             <div className="bg-white dark:bg-black w-full p-4"> 
             <p className="text-black dark:text-white text-md font-medium"> {sponsor.name} </p> 
             </div> 
             </div> 
           ))} 
             </div>
-            <p className='text-center'>...och till alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch. Stort tack till er också.</p> 
+            <p className='text-center mb-12'>...och till alla ni som kommer till våra konserter, lyssnar på musiken vi släpper,  köper vår merch. Stort tack till er också.</p> 
         </div>
-        <div className='lg:py-24 sm:py-12'>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:py-8 pt-4">Djupgående och mer specifik information</h1>
-            <p className='text-center'>Nedan finns länkar om mer djupgående- och specifik information. Till exempel, hur vi hanterar data, osv.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-48 pb-6">
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
-                        <Image 
-                          height={320}
-                          alt=""
-                          width={1080}
-                          src='/assets/B05I6324.png'
-                          quality={100}
-                          loading='lazy'
-                          style={{
-                            width: '100%',
-                          }}
-                        />
-                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
-                          <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Faktura</b>
-                          </p>
-                          <p>
-                            Fakturor skickas till <Link href="mailto:elliot.bergdahl@kf019.se">Elliot Bergdahl</Link>, alternativ till vårt kontor. Ange alltid referens.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
-                        <Image 
-                          height={320}
-                          alt=""
-                          width={1080}
-                          src='/assets/B05I6324.png'
-                          quality={100}
-                          loading='lazy'
-                          style={{
-                            width: '100%',
-                          }}
-                        />
-                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
-                          <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Besök oss</b>
-                          </p>
-                          <p>
-                            Du är varmt välkommen att besöka oss på vårt kontor. Vi finns på Järnvägsgatan 8, 703 62 Örebro.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="border-4 border-black dark:border-white h-90 w-80 md:w-80 m-auto overflow-x-hidden">
-                        <Image 
-                          height={320}
-                          alt=""
-                          width={1080}
-                          src='/assets/B05I6324.png'
-                          quality={100}
-                          loading='lazy'
-                          style={{
-                            width: '100%',
-                          }}
-                        />
-                        <div className="bg-white dark:bg-black w-full p-4 border-t-4 border-black dark:border-white">
-                          <p className="text-black dark:text-white text-md font-medium divider border-b-2 border-black dark:border-white">
-                            <b>Rättslig information</b>
-                          </p>
-                          <p>
-                            Organisationsnummer: <br/> 802541-7935
-                            <br/>
-                            Bankgiro: 137-0857
-                            <br/>
-                            Ordförande: Timothy Steckl
-                          </p>
-                        </div>
-                      </div>
-                </div>
-        </div>
+
         </main>
     </div>
   )
