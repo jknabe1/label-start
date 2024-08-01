@@ -9,7 +9,7 @@ const IgCarousel = () => {
           <div className="p-[10px] accordion-body gap-[10px] flex-col large ">
             <span></span> 
             <Marquee>
-            <p className="text-8xl dark:text-black">  /  DIREKT FRÅN INSTA  / DIREKT FRÅN INSTA </p>
+            <h1 className="text-8xl dark:text-black">  /  DIREKT FRÅN INSTA  / DIREKT FRÅN INSTA </h1>
             </Marquee>
           </div>
         </div>

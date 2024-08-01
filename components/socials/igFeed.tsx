@@ -36,7 +36,7 @@ export default async function IgFeed() {
     <>
   {error && <p className="text-red-500">{error}</p>}
   {instagramFeed && (
-    <div className="grid md:grid-cols-3 divide-y divide-x divide-black dark:divide-white">
+    <div className="grid md:grid-cols-3 divide-x divide-black dark:divide-white">
       {instagramFeed.data.map((post: InstagramPost) => (
         <div key={post.id} className="divide-y divide-black dark:divide-white flex flex-col">
           <img
