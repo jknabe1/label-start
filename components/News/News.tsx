@@ -37,7 +37,8 @@ export const News = () => {
     <div>
       <div className="grid md:grid-cols-2 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white">
       {news.map((news: { _id: string, name: string, excerpt: string, image: string, current: string, featured: boolean,  slug: { current: string }, }, index: number) => (                
-        <><div key={news._id} className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+        <>
+        <div key={news._id} className="divide-y divide-black flex  flex-col undefined dark:divide-white">
           <Image src={urlFor(news.image).url()} style={{ objectPosition: "center" }} alt={news.name} sizes="100vw" width={'1'} height={'1'} className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
           <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
             <div className="divide-black divide-y dark:divide-white">

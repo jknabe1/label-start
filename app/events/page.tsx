@@ -1,9 +1,23 @@
-import Link from "next/link";
 import '@/app/globals.css';
 import { SanityDocument } from "next-sanity";
-import { client } from "@/sanity/client";
+import React, { useEffect, useState } from 'react'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '@/sanity/client'
+import Link from 'next/link'
+import Image from 'next/image'
 
-const EVENTS_QUERY = `*[_type == "event" && defined(slug.current)]{_id, name, slug, date}|order(date desc)`;
+const builder = imageUrlBuilder(client);
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+const formatDate = (timestamp: string) => {
+  const date = new Date(timestamp);
+  return date.toLocaleDateString();
+};
+
+
+const EVENTS_QUERY = `*[_type == "event" && defined(slug.current)]{_id, name, slug, date, image}|order(date desc)`;
 
 export default async function IndexPage() {
   const events = await client.fetch<SanityDocument[]>(EVENTS_QUERY);
@@ -30,7 +44,7 @@ export default async function IndexPage() {
                     </div>
                 </div>
         </header>
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 mb-12">
+    <main>
       <div>
       <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white mb-8 sm:text-4xl md:text-5xl">
         Kommande 
@@ -41,7 +55,7 @@ export default async function IndexPage() {
       <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white mb-8 sm:text-4xl md:text-5xl mt-12">
         Tidigare 
       </h2>
-      <p className="mb-4 text-center">Vill du veta mer om våra tidigare arrangemang? Läs mer nedan... </p>
+      <p className="mb-4 text-center">Vill du veta mer om våra tidigare arrangemang? Läs mer nedan...</p>
       <EventList events={pastEvents} />
       </div>
     </main>
@@ -50,19 +64,40 @@ export default async function IndexPage() {
 }
 
 const EventList = ({ events }: { events: SanityDocument[] }) => (
-  <ul className="w-full grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 lg:gap-8">
+      <div className="grid md:grid-cols-3 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white">
     {events.map((event) => (
-      <li
-        className="event-card bg-white p-6 border-4 border-black dark:bg-black dark:border-white shadow-md max-w-full"
-        key={event._id}
-      >
-        <Link className="block hover:underline" href={`/events/${event.slug.current}`}>
-            <h2 className="mb-2 text-xl font-semibold text-black dark:text-white">{event?.name}</h2>
-            <p className="text-gray-500">
-              {new Date(event?.date).toLocaleDateString()}
-            </p>
-        </Link>
-      </li>
+      <div key={event._id} className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+      <Image src={urlFor(event.image).url()} style={{ objectPosition: "center" }} alt={event.name} sizes="100vw" width={'1'} height={'1'} className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
+      <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+        <div className="divide-black divide-y dark:divide-white">
+          <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+            <div className="child:uppercase">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                  <span></span>
+                  <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                  {event.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="text-small p-[10px] uppercase">
+              <span className="text-[#7f7f7f]">
+                <span className='uppercase'>
+                <Link href={`/nyheter/${event.slug.current}`}>Läs mer</Link>                    </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+          <div className="text-small ">
+            <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+              <p>{formatDate(event.date)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     ))}
-  </ul>
+  </div>
 );
