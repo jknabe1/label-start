@@ -2,9 +2,14 @@
 
 import React, { useEffect, useState } from 'react'
 import AccessibilityMenu from './accessibility';
+import Link from 'next/link';
+import ScrambleText from './wordScrambler';
+
 
 const Footer = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [isHovered, setIsHovered] = useState(false);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,30 +22,31 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="divide-x  divide-black flex bg-white border-y-2 border-black dark:bg-black dark:border-white dark:divide-white uppercase">
-      <a href="/" className="p-[10px] w-1/2 flex bg-white dark:bg-black">
+    <div className="z-40 bottom-0 divide-x w-full  divide-black flex bg-white border-y-2 border-black dark:bg-black dark:border-white dark:divide-white uppercase">
+      <Link href="/" className="p-[10px] w-1/2 flex bg-white dark:bg-black hover:text-orange">
       <div className="my-auto divide-y divide">
         <h1 className='bold uppercase'>K&K RECORDS</h1>
       </div>
-      </a>
+      </Link>
       <div className="w-1/6 md:flex">
-      <span className='flex p-[10px]'>Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm', timeStyle: 'short' })}</span>
+      <span className='flex p-[10px]'>Livesändning</span>
         </div>
-        <div className="md:hidden w-[10%] ">
-          <button className="w-full bg-white h-full ">
-            <div className="p-[10px] w-full h-full flex items-center justify-center gap-[5px] ">
-              <span className="uppercase ">en</span> <span className="">v</span>
-            </div>
-          </button>
-          </div>
-              <button className="md:w-1/6 w-1/5 bg-white hover:bg-black hover:text-white dark:bg-black dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black  ">
-              <p className="uppercase ">Meny</p>
-              </button>
-              <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black ">
-              <p>
-                <span className='uppercase'>Livesändning</span>
-              </p>
-              </button>
+          <button
+        className="md:w-1/6 w-1/5 bg-white hover:bg-black hover:text-white dark:bg-black dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black"
+
+      >
+        <span className="uppercase">
+        Örebro - {currentTime.toLocaleTimeString('sv-SE', { timeZone: 'Europe/Stockholm', timeStyle: 'short' })}
+        </span>
+      </button>
+
+            <button className="md:w-1/6 w-1/5 hover:!bg-black hover:text-white hover:divide-white dark:hover:!bg-white dark:hover:text-black dark:hover:divide-black ">
+              <Link href={'https://www.kkmedia.se'}>
+                <span className='uppercase'>
+                <ScrambleText text="POWERED BY K&K MEDIA GROUP" />
+                </span>
+              </Link>
+            </button>
             </div>
   )
 }

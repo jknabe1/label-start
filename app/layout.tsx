@@ -11,6 +11,7 @@ import Loglib from "@loglib/tracker/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import NewsLetterComp from "@/components/NewsLetter/NewsLetterComp";
+import Header from "@/components/header";
 
 
 const ibm = IBM_Plex_Mono ({ 
@@ -77,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" suppressHydrationWarning >
-        <body className={`${ibm.className} bg-white text-black dark:bg-black dark:text-white dark:border-x-white`}>      
+        <body className={`${ibm.className} `}>      
           <Loglib
                   config={{
                       id: "kkrecords",
@@ -93,6 +94,7 @@ export default function RootLayout({
                 <Suspense fallback={<Loading/>}>
                     <CookieNotice />
                         <Screensaver/>
+                        <Header/>
                           {children}
                         <NewsLetterComp />
                       <Footer/>

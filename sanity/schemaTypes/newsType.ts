@@ -46,5 +46,6 @@ export const newsType = defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
+
   ],
 })

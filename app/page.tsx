@@ -5,11 +5,13 @@ import IgFeed from "@/components/socials/igFeed";
 import IgCarousel from "@/components/socials/IgCarousel";
 import ArtistComp from "@/components/artists/ArtistComp";
 import EventComp from "@/components/eventGrid/EventComp";
+import About from "@/components/landing/about";
+
 
 export default function Home() {
   return (
     <main className="flex flex-col overflow-hidden">
-      <div className="">
+      <div className="hidden">
         <div className="text-small border-y-2 border-black bg-orange dark:border-white">
           <div className="p-[10px] accordion-body gap-[10px] flex-col large ">
             <span></span> 
@@ -22,6 +24,7 @@ export default function Home() {
       <CarouselPlugin />
       <ArtistComp/>
       <NewsComp />
+      <About/>
      <IgCarousel />
       <IgFeed />
     </main>

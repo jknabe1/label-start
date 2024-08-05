@@ -26,7 +26,7 @@ const config = {
       colors: {
         white: "#FBFDF7", 
         black: "#000",
-        orange: "#FC4337",
+        orange: "#f05136",
         cyan: "#abb8c3",
         vividRed: "#cf2e2e",
         palePink: "#f78da7",
