@@ -8,7 +8,7 @@ const NewsMarquee = () => {
         <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-hidden gap-[10px] flex-col large ">
           <span></span> 
           <Marquee direction='right'>
-          <h1 className='text-8xl dark:text-black'> DET SENASTE / DET SENASTE / DET SENASTE /  </h1>
+          <h1 className='text-3xl dark:text-black'> DET SENASTE / DET SENASTE / DET SENASTE /  </h1>
           </Marquee>
         </div>
       </div>

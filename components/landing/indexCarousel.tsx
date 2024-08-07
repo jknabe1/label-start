@@ -65,17 +65,6 @@ export default function CarouselPlugin() {
               priority 
               className="absolute" 
               /> 
-
-              <h1 className="lg:text-8xl md:text-4xl uppercase" style={{ 
-                position: 'absolute', 
-                top: '50%', 
-                left: '50%', 
-                transform: 'translate(-50%, -50%)', 
-                color: 'white', 
-                mixBlendMode: 'difference' 
-              }}>
-                {artist.name}
-              </h1>
             </CardContent>
           </Card>
         </div>

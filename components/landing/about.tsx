@@ -8,16 +8,14 @@ const About = () => {
         <div className="text-small border-y-2 border-black bg-orange dark:border-white">
           <div className="p-[10px] accordion-body gap-[10px] flex-col large ">
             <span></span> 
-            <Marquee direction='right'>
-            <h1 className="text-8xl dark:text-black">   /  OM OSS  / OM OSS /  OM OSS  / OM OSS /  OM OSS  / OM OSS  </h1>
-            </Marquee>
+            <h1 className="text-4xl dark:text-black text-center">OM OSS  </h1>
           </div>
         </div>
       </div>
-        <section className="relative w-full bg-black text-white bright-cursor">
+        <section className="relative w-full bg-white text-black dark:bg-black dark:text-white bright-cursor ">
             <div aria-hidden="true" className="invisible absolute top-[85vh] bottom-[12vh] dark-region bright-cursor w-px pointer-events-none"></div>
             <div className="relative w-full">
-                <div className="grid grid-cols-12 bg-black text-white bright-cursor">
+                <div className="grid grid-cols-12 bg-white text-black dark:bg-black dark:text-white bright-cursor">
                     <div className="relative col-span-full row-start-1 row-end-1 min-h-[350px] md:min-h-0 md:col-start-1 md:col-end-7">
                         <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute inset-0 transition-transform duration-300 ease-bouncy">

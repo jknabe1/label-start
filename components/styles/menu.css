@@ -1,9 +1,9 @@
 .menu-bar,
 .menu-overlay-bar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;

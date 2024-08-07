@@ -5,7 +5,6 @@ import ArtistGrid from './ArtistsGrid'
 const ArtistComp = () => {
   return (
     <div>
-        <ArtistMarquee />
         <ArtistGrid/>
     </div>
   )
