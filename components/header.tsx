@@ -7,7 +7,7 @@ import "@/app/globals.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import '@/components/styles/menu.css';
-import Footer from "./footer";
+import Image from "next/image";
 
 const menuLinks = [
   { path: "/", label: "Start" },
@@ -26,6 +26,9 @@ const menuLinks = [
 const Menu: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
+
 
   const tl = useRef<gsap.core.Timeline | null>(null);
 
@@ -40,6 +43,25 @@ const Menu: React.FC = () => {
       document.body.style.overflow = 'auto';
     }
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setIsVisible(false); // Scrolling down
+      } else {
+        setIsVisible(true); // Scrolling up
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
 
   useGSAP(
     () => {
@@ -73,29 +95,25 @@ const Menu: React.FC = () => {
   
 
   return (
-  <div className="menu-container relative z-50 " ref={container}> 
-    <div className="menu-bar z-40 top-0 divide-x w-full  divide-black flex bg-white border-y-2 border-black dark:bg-black dark:border-white dark:divide-white uppercase">
-    <div className="menu-logo">
-          <Link href="/" aria-label="Gå till startsidan"  title="Start">
-          <h1 className="text-3xl">
-            K&K RECORDS
-          </h1>
+    <div ref={container} className={`menu-container relative z-50 ${isVisible ? 'visible' : 'hidden'}`}>
+    <div className="menu-bar bg-white dark:bg-black text-black dark:text-white box-border overflow-y-auto ">        
+        <div className="menu-logo ">
+          <Link href="/">
+              <p className="lg:text-3xl md:text-3xl sm:text-2xl text-black dark:text-white">K&K Media Group</p>
           </Link>
         </div>
         <div className="menu-open" onClick={toggleMenu}>    
-        <p>
-          Meny</p>    
+        <button data-cursor="true">
+              <p className="lg:text-3xl md:text-3xl sm:text-2xl text-black dark:text-white">Meny</p>
+          </button>    
         </div>
       </div>
-
-      <div className="menu-overlay bg-white dark:bg-black border-4 border-black dark:border-white text-black dark:text-white">
-            <div className="menu-overlay-bar border-b-4 border-black dark:border-white box-border">
+      <div className="menu-overlay bg-white text-black dark:text-white">
+            <div className="menu-overlay-bar border-b-2 border-black">
               <div className="menu-logo">
-                <Link href="/">
-                <h1 className="text-3xl">
-                  K&K RECORDS
-                </h1>
-                </Link>
+              <Link href="/">
+                <p className="lg:text-3xl md:text-3xl sm:text-2xl text-black dark:text-white">K&K Media Group</p>
+              </Link>
               </div>
               <div className="menu-close cursor-pointer">
                 <img
@@ -107,20 +125,198 @@ const Menu: React.FC = () => {
               </div>
             </div>
             <div className="menu-copy">
-            <div className="menu-links text-3xl md:grid md:grid-cols-2 md:gap-4 md:items-center md:justify-center flex flex-col justify-center items-center h-screen">
-              {menuLinks.map((link, index) => (
-                <div key={index} className="menu-link-item mb-4">
-                  <div className="menu-link-item-holder" onClick={toggleMenu}>
-                    <Link className="menu-link" href={link.path}>
-                      {link.label}
-                    </Link>
+            <div className="grid md:grid-cols-3 md:divide-x divide-black divide-y md:divide-y-0 dark:divide-white">
+        <>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[60vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-3 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      ARTISTER
+                      </p>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-              <div className="menu-info">
-                <Footer />
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">ARTISTER</Link>                    </span>
+                  </span>
+                </div>
               </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">Läs mer</Link>                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">Läs mer</Link>                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">Läs mer</Link>                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[100vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">Läs mer</Link>                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divide-y divide-black flex  flex-col undefined dark:divide-white">
+          <Image src="" style={{ objectPosition: "center" }} alt="" className="duration-300 w-full opacity-0 object-cover h-full !shadow-none transition-opacity ease-in !h-[60vw] md:!h-[33vw] opacity-100" />
+          <div className="divide-black flex flex-col divide-y min-h-0 dark:divide-white">
+            <div className="divide-black divide-y dark:divide-white">
+              <div className="grid grid-cols-2 divide-x w-full divide-black dark:divide-white">
+                <div className="child:uppercase">
+                  <div className="text-small ">
+                    <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col text-small ">
+                      <span></span>
+                      <p className="whitespace-nowrap flex w-full overflow-y-hidden hover:!text-[#f05136]">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-small p-[10px] uppercase">
+                  <span className="text-[#7f7f7f]">
+                    <span className='uppercase'>
+                    <Link href="">Läs mer</Link>                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="flex min-h-0 flex-row divide-x divide-black dark:divide-white">
+              <div className="text-small ">
+                <div className="p-[10px] overflow-x-scroll accordion-body md:overflow-clip overflow-y-hidden gap-[10px] flex-col "><span></span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </>
+                               
+      </div>
             </div>
         </div>
   </div>

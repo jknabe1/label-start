@@ -8,7 +8,7 @@ const About = () => {
         <div className="text-small border-y-2 border-black bg-orange dark:border-white">
           <div className="p-[10px] accordion-body gap-[10px] flex-col large ">
             <span></span> 
-            <h1 className="text-4xl dark:text-black text-center">OM OSS  </h1>
+            <h1 className="text-3xl dark:text-black">OM OSS  </h1>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { IBM_Plex_Mono} from "next/font/google";
 import "./globals.css";
@@ -12,7 +13,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import NewsLetterComp from "@/components/NewsLetter/NewsLetterComp";
 import Header from "@/components/header";
-
+import { ReactLenis, useLenis } from 'lenis/react'
 
 const ibm = IBM_Plex_Mono ({ 
   weight: '400',
@@ -71,11 +72,15 @@ export const metadata: Metadata = {
 
 
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lenis = useLenis(({ scroll }) => {
+  })
+
   return (
     <html lang="sv" suppressHydrationWarning >
         <body className={`${ibm.className} `}>      
